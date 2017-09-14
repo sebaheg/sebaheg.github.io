@@ -4,7 +4,7 @@ title: About Me
 ---
 
 <p align="center">
-  <img width="460" height="300" src="/images/sebastian.png">
+  <img width="250" height="250" src="/images/sebastian.png">
 </p>
 
 I'm an energy engineer working as a power trader in Sweden.
