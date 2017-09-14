@@ -3,7 +3,9 @@ layout: page
 title: About Me
 ---
 
-![](/images/sebastian.png)
+<p align="center">
+  <img width="460" height="300" src="/images/sebastian.png">
+</p>
 
 I'm an energy engineer working as a power trader in Sweden.
 
