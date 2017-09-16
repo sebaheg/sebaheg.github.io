@@ -21,8 +21,10 @@ In a wider perspective, an existential risk is defined as:
 The core is that an existential risk are those risks that threaten the entire future of humanity - not just the present generation, but all future generations. But Boströms scope of existential risk is a bit bigger, it also incorporates situations such as permanent stagnation, flawed realization and subsequent ruination. Basically, he argues that not fulfilling the highest potential of technological development constitutes an existential risk. I am not sure I agree with him. I think it would be alright for humanity to follow a path of where the full technological potential is not fulfilled if that state could be maintained and protected for human extinction. What do you think?
 
 ## References
-* Max Tegmark, Our Mathematical Universe: My Quest for the Ultimate Nature of Reality
-* R. Buckmister Fuller, Operating Manual for Spaceship Earth
-* [existential-risk.org](http://www.existential-risk.org/)
+* Nick Boström, Existential Risk Prevention as Global
+Priority
 * [Centre for the Study of Existential Risk](http://cser.org/)
+* [existential-risk.org](http://www.existential-risk.org/)
+* R. Buckmister Fuller, Operating Manual for Spaceship Earth
+* Max Tegmark, Our Mathematical Universe: My Quest for the Ultimate Nature of Reality
 * Wikipedia, [Global catastrophic risk](https://en.wikipedia.org/wiki/Global_catastrophic_risk)
