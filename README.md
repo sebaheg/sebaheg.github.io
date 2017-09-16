@@ -6,6 +6,7 @@ As always, I have way more ideas than I have time to realise. These are the blog
 
 1. Existential risk
 1. Climate Change (history and joseph fourier)
+1. Big World, Small Planet
 1. The Bill Gates Equation
 1. The Rise of Renewable Energy (Reference IEA report)
 1. The Energy Transformation (structural change of energy system)
@@ -53,3 +54,9 @@ I want to have the following tags:
 * CFD
 * Game Theory
 * Forecasting
+
+## On Writing blog posts
+General advice on writing blog posts: 
+
+* Start by sketching out what you want to include in the post. 
+* Write about stuff that you, yourself want to learn more about. 
