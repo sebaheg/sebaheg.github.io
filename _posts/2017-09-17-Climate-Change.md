@@ -15,6 +15,10 @@ The mechanisms affecting climate change are called climate forcings and they can
 
 The concept of planetary feedback is commonly referred to as resilience by climate scientists. A resilient ecosystem is capable of maintaining the same state in the presence of internal or external stresses. But continous exposure for stress might deteriorate the system, making it less rebust. A hard enough push, or an slow but steady transition, might change the state (or regime) of the system. For example, temperature rises could potentially turn the Earth into new state without any glaciers. Or if temperatures decreases for some reason, it could lead us into an ice age. You could image the different states as stable equilibrium points of a ball in a gravitational field as shown below.
 
+<p align="center">
+  <img width="300" height="300" src="/images/tipping-points.png">
+</p>
+
 ![Tipping Points](/images/tipping-points.png)
 
 
