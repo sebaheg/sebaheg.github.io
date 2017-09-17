@@ -29,13 +29,17 @@ The Holocene is our cherished home. Therefore, goal in the Antropocene and comin
 
 Notice that climate change is only one of the planetary boundaries. Moreover, all boundaries are hyperconnected and affect each other. For example, climate change would lead to less availability of fresh water. The planetary bounderies framework holistically gives the big picture. At this point however, climate change is one of the most urgent boundaries (together with loss of biodiversity and overload of nitrogen and phosphorus) to be dealt with.
 
-The antropogenic climate change is called global warming. today planet is heating at a rate unprecedented in all of recoded history. This is clearer than every before, see this great [visualization](https://www.youtube.com/watch?v=K4Ra2HR27pQ) for example. Furthermore, we have been aware of this for a long time. The mathematician Joseph Fourier showed already in 1824 that without the presence of the atmosphere, the Earth would be far colder. The Swedish physicist, build upon this and discovered that the amount of carbon dioxide in the atmosphere affects the mean temperature on Earth. Today, link between greenhouse gases and increase in mean temperature is clear for the vast majority of scientists.
+The antropogenic climate change is called global warming. Today, the planet is heating at a rate unprecedented in all of recoded history. This is more evident than every before, see this great [visualization](https://www.youtube.com/watch?v=K4Ra2HR27pQ) for example. Furthermore, we have been aware of this for a long time. The mathematician Joseph Fourier showed already in 1824 that without the presence of the atmosphere, the Earth would be far colder. The Swedish physicist, build upon this and discovered in 1896 that the amount of carbon dioxide in the atmosphere affects the mean temperature on Earth. This effect is caused by heat trapping gases letting visible light from the sun pass and absorbing low frequency infrared light emitted form the Earth. Today, link between greenhouse gases and increase in mean temperature is clear for the vast majority of scientists.
+
+![Temperature-CO2](/images/temperature-co2.jpeg)
 
 <p align="center">
-  <img width="250" height="250" src="/images/temperature-co2.jpeg">
+  <img width="750" height="300" src="/images/temperature-co2.jpeg">
 </p>
 
-!!!
+What are the consequences if we do not take action? Read https://climate.nasa.gov/ and reference.
+
+!!!pelle
 we began spitting out carbon dioxide into the atmosphere. This caused antropogenic climate change, known as global warmning. Joseph fourier was the first to predict this in blablablabla...
 
 safe and just operating space for humanity
