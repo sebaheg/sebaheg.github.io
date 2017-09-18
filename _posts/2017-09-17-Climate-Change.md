@@ -37,7 +37,7 @@ The antropogenic climate change is called global warming. Today, the planet is h
   <img width="750" height="300" src="/images/temperature-co2.jpeg">
 </p>
 
-What are the consequences if we do not take action? Read https://climate.nasa.gov/ and reference.
+What are the consequences if we do not take action? Read https://climate.nasa.gov/ and reference. In the next post we will talk about the solutions and tbe bill gates equation. 
 
 !!!pelle
 we began spitting out carbon dioxide into the atmosphere. This caused antropogenic climate change, known as global warmning. Joseph fourier was the first to predict this in blablablabla...
