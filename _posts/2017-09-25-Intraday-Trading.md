@@ -1,9 +1,12 @@
 ---
 layout: post
-title: Climate Change
+title: Intraday Trading
 ---
 
+In a previous post, I wrote about dayahead electricity trading. In this post we will explore trading of electricity the same day as delivery, called intraday trading. 
+
 ### References
-* Test
-* ses
+* NordPool, [Intraday trading](http://www.nordpoolspot.com/TAS/intraday-trading/)
+* Powel, https://www.powel.com/news/revolutionising-intraday-trading/
+*
 *
