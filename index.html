@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Home
-plotly: true
 ---
 
 <div class="posts">
@@ -15,9 +14,10 @@ plotly: true
 
     <span class="post-date">{{ post.date | date_to_string }}</span>
     
+    <script id="dsq-count-scr" src="//el-nino.disqus.com/count.js" async></script>
     <!-- add this to include post content in home -->
     <!--{{ post.content }}-->
-    
+
   </div>
   {% endfor %}
 </div>
@@ -38,4 +38,3 @@ plotly: true
     <span class="pagination-item newer">Newer</span>
   {% endif %}
 </div>
-
