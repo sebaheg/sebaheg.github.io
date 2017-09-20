@@ -16,10 +16,12 @@ title: Home
     <span class="post-date">{{ post.date | date_to_string }}</span>
 
     {{ post.description }}
-
+    <br>
+    
     {% if post.comments %}
       <a href="{{post.url}}#disqus_thread">Comments</a>
     {% endif %}
+    <br>
 
     <!-- Add tags -->
     <span class="post-tags">
