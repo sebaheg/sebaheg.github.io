@@ -12,16 +12,12 @@ title: Home
       </a>
     </h1>
 
-
+    <!-- Add date and comment counts -->
     <span class="post-date" style="white-space:nowrap">{{ post.date | date_to_string }}
     {% if post.comments %}
-      <a href="{{post.url}}#disqus_thread">Comments&nbsp;</a>
+      <a href="{{post.url}}#disqus_thread">Comments</a>
     {% endif %}
     </span>
-
-    <span class="post-date" style="white-space:nowrap">{{ post.date | date_to_string }}</span>
-
-
 
     <!-- Add tags -->
     <span class="post-tags">
