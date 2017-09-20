@@ -12,11 +12,13 @@ title: Home
       </a>
     </h1>
 
-    <nobr><span class="post-date">{{ post.date | date_to_string }}</span></nobr>
+    <nobr>
+      <span class="post-date">{{ post.date | date_to_string }}</span>
 
-    {% if post.comments %}
-      <a href="{{post.url}}#disqus_thread">Comments</a>
-    {% endif %}
+      {% if post.comments %}
+        <a href="{{post.url}}#disqus_thread">Comments</a>
+      {% endif %}
+    </nobr>
 
     <!-- Add tags -->
     <span class="post-tags">
