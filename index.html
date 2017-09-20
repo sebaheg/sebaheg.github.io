@@ -14,7 +14,7 @@ title: Home
 
     <!-- Add date and comment counts -->
     <span class="post-date">{{ post.date | date_to_string }}</span>
-    
+
     <!-- Add tags -->
     <span class="post-tags">
       [&nbsp;
@@ -24,6 +24,7 @@ title: Home
       {% endfor %}
       ]
     </span>
+    <br>
 
     {{ post.description }}
     <br>
@@ -31,7 +32,6 @@ title: Home
     {% if post.comments %}
       <a href="{{post.url}}#disqus_thread">Comments</a>
     {% endif %}
-    <br>
 
     <!-- add this to include post content in home -->
     <!--{{ post.content }}-->
