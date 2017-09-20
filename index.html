@@ -12,7 +12,8 @@ title: Home
       </a>
     </h1>
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
+    <span class="post-date"><nobr>{{ post.date | date_to_string }}</nobr></span>
+    <a href="{{post.url}}#disqus_thread">Comments</a>
 
     <!-- Add tags -->
     <span class="post-tags">
@@ -23,8 +24,6 @@ title: Home
       {% endfor %}
       ]
     </span>
-    <br>
-    <a href="{{post.url}}#disqus_thread">Comments</a>
 
     <!-- add this to include post content in home -->
     <!--{{ post.content }}-->
