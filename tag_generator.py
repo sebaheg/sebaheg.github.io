@@ -18,7 +18,6 @@ for filename in filenames:
     for line in f:
         if crawl:
             current_line = line.strip().split()
-            print(current_line)
             if current_line[0] == 'live:':
                 if current_line[1] == 'true':
                     live = True
