@@ -10,21 +10,30 @@ filenames = glob.glob(post_dir + '*md')
 
 total_tags = []
 for filename in filenames:
+    print(filename)
     f = open(filename, 'r', encoding="utf8")
     crawl = False
+    live = False
+    current_tags = []
     for line in f:
         if crawl:
-            current_tags = line.strip().split()
-            if current_tags[0] == 'tags:':
-                total_tags.extend(current_tags[1:])
-                crawl = False
-                break
+            current_line = line.strip().split()
+            print(current_line)
+            if current_line[0] == 'live:':
+                if current_line[1] == 'true':
+                    live = True
+            if current_line[0] == 'tags:':
+                current_tags = current_line[1:]
         if line.strip() == '---':
             if not crawl:
                 crawl = True
             else:
                 crawl = False
                 break
+    if live == True:
+        total_tags.extend(current_tags)
+
+
     f.close()
 total_tags = set(total_tags)
 
