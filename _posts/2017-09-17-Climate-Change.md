@@ -2,6 +2,7 @@
 layout: post
 title: Climate Change
 tags: climate-change why
+live: false
 ---
 
 In a previous blog [post]({{ site.baseurl }}{% post_url 2017-09-16-Existential-Risk %}), I wrote about existential risks on different time scales. One existential risk I have been especially interested in for the last 5 year is climate change. Just as artificial general intelligence (AGI), climate change is an urgent existential risk and needs to be dealt with during this century. However, in contrast to the development of AGI, we know to a high degree of certainty what is causing climate change and what we must do to limit its impact and avoid devastating consequences. But still, we ignorantly take life as we know it for granted and our politicians are reluctant to act at the required pace postulated by climate scientists to keep Earth in a safe operating space. Both of which are mind-boggling to me. In this blog post I will review what is causing climate change and what its potential consequences are.
