@@ -10,7 +10,6 @@ description:         'This is the description by <a href="https://twitter.com/md
 url:                 http://lanyon.getpoole.com
 baseurl:             ''
 paginate:            10
-tags:                ""
 
 # About/contact
 author:
