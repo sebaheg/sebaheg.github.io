@@ -19,13 +19,10 @@ title: Home
         <!-- Add tags -->
         <i class="fa fa-tags"></i>
         <span class="post-tags">
-          [&nbsp;
           {% for tag in post.tags %}
             {% capture tag_name %}{{ tag }}{% endcapture %}
-            <a class="no-underline" href="/tag/{{ tag_name }}"><code class="highligher-rouge"><nobr>{{ tag_name }}</nobr></code>&nbsp;</a>
             <li class="inline archive_list"><a class="tag_list_link" href="/tag/{{ tag_name }}">{{ tag_name }}</a></li>
           {% endfor %}
-          ]
         </span>
       </span>
 
