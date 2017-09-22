@@ -21,7 +21,7 @@ title: Home
         <span class="post-tags">
           {% for tag in post.tags %}
             {% capture tag_name %}{{ tag }}{% endcapture %}
-            <a class="tag_list_link" href="/tag/{{ tag_name }}">{{ tag_name }}</a>
+            <a href="/tag/{{ tag_name }}">{{ tag_name }}</a>
           {% endfor %}
         </span>
       </span>
