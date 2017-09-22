@@ -21,6 +21,7 @@ title: Home
           [&nbsp;
           {% for tag in post.tags %}
             {% capture tag_name %}{{ tag }}{% endcapture %}
+            <i class="fa fa-tags"></i>
             <a class="no-underline" href="/tag/{{ tag_name }}"><code class="highligher-rouge"><nobr>{{ tag_name }}</nobr></code>&nbsp;</a>
           {% endfor %}
           ]
