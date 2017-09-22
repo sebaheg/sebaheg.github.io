@@ -3,7 +3,7 @@ layout: post
 title: Exploring regional windpower data in Sweden
 plotly: true
 tags: renewable-energy visualization
-draft: true
+live: true
 ---
 
 <body> {% include _plots/plot.html %} </body>

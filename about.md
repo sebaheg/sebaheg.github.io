@@ -1,6 +1,7 @@
 ---
 layout: page
-title: About Me
+title:  About Me
+icon:   <i class="fa fa-fw fa-user-circle" aria-hidden="true"></i>
 ---
 
 <p align="center">

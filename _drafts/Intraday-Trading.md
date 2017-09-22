@@ -4,7 +4,7 @@ title: Intraday Trading
 description: Intraday trading is something special
 tags: electricity-market
 comments: true
-draft: true
+live: true
 ---
 
 In a previous post, I wrote about dayahead electricity trading. In this post we will explore trading of electricity the same day as delivery, called intraday trading.

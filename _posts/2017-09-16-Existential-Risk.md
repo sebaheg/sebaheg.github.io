@@ -3,6 +3,7 @@ layout: post
 title: Existential Risk
 tags: why
 comments: true
+live: true
 ---
 Imagine being on a spaceship travelling through the hostile space at 30 km/s. Outside, it is freezing cold. The hull of the spaceship is keeping you warm and protecting you from deadly ultraviolet radiation. On the spaceship there is a limited supply of water, food, fuel and other necessities. A responsible captain would do everything in her power keep the passengers safe. She would struggle to avoid collision with asteroids, onboard explosions, overheating of the spaceship, degradation of the protecting hull and depletion of the limited resources. The name of the spaceship is planet earth. Its protecting hull is the atmosphere, ozone layer and its magnetic field.
 
