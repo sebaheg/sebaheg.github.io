@@ -5,7 +5,7 @@ title: Home
 
 <div class="posts">
   {% for post in paginator.posts %}
-    {% if post.live %}
+    {% unless post.draft %}
     <div class="post">
       <h1 class="post-title">
         <a href="{{ site.baseurl }}{{ post.url }}">
@@ -38,7 +38,7 @@ title: Home
       <!--{{ post.content }}-->
 
     </div>
-    {% endif %}
+    {% endunless %}
   {% endfor %}
 </div>
 

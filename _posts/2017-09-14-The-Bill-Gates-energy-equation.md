@@ -2,7 +2,7 @@
 layout: post
 title: The Bill Gates Energy Equation
 tags: climate-change why renewable-energy
-live: false
+draft: true
 ---
 
 
