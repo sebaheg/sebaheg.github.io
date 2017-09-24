@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>El Niño</title>
- <link href="http://localhost:4000/atom.xml" rel="self"/>
- <link href="http://localhost:4000/"/>
- <updated>2017-09-24T11:10:26+02:00</updated>
- <id>http://localhost:4000</id>
+ <link href="/atom.xml" rel="self"/>
+ <link href="/"/>
+ <updated>2017-09-24T11:12:27+02:00</updated>
+ <id></id>
  <author>
    <name></name>
    <email></email>
@@ -15,9 +15,9 @@
   
    <entry>
      <title>Existential Risk</title>
-     <link href="http://localhost:4000/2017/09/16/Existential-Risk/"/>
+     <link href="/2017/09/16/Existential-Risk/"/>
      <updated>2017-09-16T00:00:00+02:00</updated>
-     <id>http://localhost:4000/2017/09/16/Existential-Risk</id>
+     <id>/2017/09/16/Existential-Risk</id>
      <content type="html">&lt;p&gt;Imagine being on a spaceship travelling through the hostile space at 30 km/s. Outside, it is freezing cold. The hull of the spaceship is keeping you warm and protecting you from deadly ultraviolet radiation. On the spaceship there is a limited supply of water, food, fuel and other necessities. A responsible captain would do everything in her power keep the passengers safe. She would struggle to avoid collision with asteroids, onboard explosions, overheating of the spaceship, degradation of the protecting hull and depletion of the limited resources. The name of the spaceship is planet earth. Its protecting hull is the atmosphere, ozone layer and its magnetic field.&lt;/p&gt;
 
 &lt;p&gt;To me, this analogy makes it clear how fragile and insignificant our life on earth is. This fact is excellently captured by the speech &lt;a href=&quot;https://www.youtube.com/watch?v=kmP4Xzt0rN4&quot;&gt;“Pale Blue Dot”&lt;/a&gt; by Carl Sagan. Our life as a species is threatened by several existential risk. To illustrate this, Max Tegmark made a graphic showing how life as we know it could be wiped out.&lt;/p&gt;
