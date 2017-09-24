@@ -23,9 +23,6 @@ The concept of planetary feedback is commonly referred to as resilience by clima
   <img width="350" height="350" src="/images/tipping-points.png">
 </p>
 
-Melting of ice caps is not the only positive feedback out there. Other examples are the release of carbon dioxide (and water vapor) from the oceans as they heat up and release of methane from thawing parmafrosts. Both contributing to a stronger greenhouse effect and thus global warming. Scientists have hypothesized that these effects may lead to a runaway greenhouse effect. A planet gone wild. Much like the greenhouse effect on Venus, with a surface temperature of more than 450 degree Celsius.
-
-
 ### Welcome to the anthropocene
 During the last 50 years, after 10 000 year of Holocene, the Earth has tipped into a new state, the Anthropocene. In this state it is we, the humans, how is the largest force acting on the planet. The population increase and the advances in our standards of life and technology are putting immense pressure on the planet. Human activity is causing deforestation, loss of biodiversity and increase of greenhouse gases in the atmosphere from energy transformation, transport and animal husbandry to mention a few. In the last 50 year, we have gone from a small world on a big planet to a big world on a small planet. We can no longer treat the planet as a vast, stable and self-regulating system with unlimited resources.
 
