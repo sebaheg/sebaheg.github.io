@@ -5,11 +5,12 @@ permalink:           pretty
 
 # Setup
 title:               El Niño
-tagline:             'Using Algorithms to Fight Climate Change'
+tagline:             'Algorithms to Fight Climate Change'
+description:         ''
 baseurl:             ''
 paginate:            10
 
 # Custom vars
+google_analytics:    UA-106923899-1
+plugins:             [jekyll-paginate]
 # version:           1.0.0
-
-plugins: [jekyll-paginate]
