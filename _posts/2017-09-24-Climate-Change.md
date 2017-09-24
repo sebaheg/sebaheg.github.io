@@ -82,10 +82,11 @@ The climate crisis is a fact. Our generation can thank science for informing us 
 I'd like to finish this blog post by a quote from Al Gore:
 
 <p class="message">
-  "How many generations in all of human history have had the opportunity to rise to a challenge that is worthy of our best efforts? A challenge that can pull from us more than we knew we could do?"
+  "How many generations in all of human history have had the opportunity to rise to a challenge that is worthy of our best efforts? A challenge that can pull from us more than we knew we could do. We ought to approach with a sense of profound joy and gratitude. That we are the generation about which, a thousands years from now, philharmonic orchestras and poets and singers will celebrate by saying: they where the ones, that found it within themselves to solve this crisis and lay the basis for a bright and optimistic human future"
 </p>
 
 ### References
+* Al Gore, [TED - New thinking on the climate crisis](https://www.ted.com/talks/al_gore_s_new_thinking_on_the_climate_crisis)
 * Climate Central, [www.climatecentral.org](http://www.climatecentral.org/)
 * IPCC, [www.ipcc.ch](http://www.ipcc.ch/)
 * Johan Rockström and Mattias Klum, Big World Small Planet
