@@ -2,6 +2,7 @@
 layout: post
 title: Climate Change
 tags: climate-change why
+comments: true
 live: true
 ---
 
