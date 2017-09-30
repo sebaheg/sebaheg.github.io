@@ -37,12 +37,14 @@ here is about the optimism in climate change (al gore) https://www.ted.com/talks
 ## Mathjax
 
 ## Interactive Plots
-This blog is capable of handing interactive plots from [plotly](). To add an interactive plot, first one has to get the ```div``` using a plotly function according to:
+This blog is capable of handing interactive plots from [plotly](https://plot.ly/). To add an interactive plot, first one has to get the ```div``` using a plotly function according to:
 
 ```
 import plotly
 div = plotly.offline.plot(fig, include_plotlyjs=False, output_type='div')
 ```
+
+Then this ```div``` should be saved as a ```.html``` file and placed on the following path. ```_includes/_plots/```.  
 
 ## Planned Changes to the Blog
 There are wanted changes to the blog that still are not implemented in the jekyll tempelate. These are:
