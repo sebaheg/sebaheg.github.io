@@ -44,7 +44,11 @@ import plotly
 div = plotly.offline.plot(fig, include_plotlyjs=False, output_type='div')
 ```
 
-Then this ```div``` should be saved as a ```.html``` file and placed on the following path. ```_includes/_plots/```.  
+Then this ```div``` should be saved as a ```.html``` file and placed on the following path. ```_includes/_plots/```. Finally, in order to include it in a ```.md``` blog post, the following code can be used:
+
+```
+<body> {% include _plots/example_plot.html %} </body>
+```
 
 ## Planned Changes to the Blog
 There are wanted changes to the blog that still are not implemented in the jekyll tempelate. These are:
