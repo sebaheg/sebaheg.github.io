@@ -37,11 +37,19 @@ here is about the optimism in climate change (al gore) https://www.ted.com/talks
 ## Mathjax
 
 ## Interactive Plots
-This blog is capable of handing interactive plots from [plotly](https://plot.ly/). To add an interactive plot, first one has to get the ```div``` using a plotly function according to:
+This blog is capable of handing interactive plots with [plotly](https://plot.ly/). To add an interactive plot, first one has to get the ```div``` using a plotly function according to:
 
 ```
 import plotly
 div = plotly.offline.plot(fig, include_plotlyjs=False, output_type='div')
+```
+
+Using ```python```, the ```div``` can be saved to a file:
+
+```
+text_file = open("example_plot.html", "w")
+text_file.write(div)
+text_file.close()
 ```
 
 Then this ```div``` should be saved as a ```.html``` file and placed on the following path. ```_includes/_plots/```. Finally, in order to include it in a ```.md``` blog post, the following code can be used:
