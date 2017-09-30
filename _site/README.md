@@ -34,14 +34,34 @@ here is about the optimism in climate change (al gore) https://www.ted.com/talks
 1. Bayesian statistics
 1. Computational fluid dynamics
 
+## Mathjax
+
+## Interactive Plots
+This blog is capable of handing interactive plots with [plotly](https://plot.ly/). To add an interactive plot, first one has to get the ```div``` using a plotly function according to:
+
+```
+import plotly
+div = plotly.offline.plot(fig, include_plotlyjs=False, output_type='div')
+```
+
+Using ```python```, the ```div``` can be saved to a file:
+
+```
+text_file = open("example_plot.html", "w")
+text_file.write(div)
+text_file.close()
+```
+
+This this file should be placed on the following path: ```_includes/_plots/```. Finally, in order to include it in a ```.md``` blog post, the following code can be used:
+
+```
+<body> {% include _plots/example_plot.html %} </body>
+```
+
 ## Planned Changes to the Blog
 There are wanted changes to the blog that still are not implemented in the jekyll tempelate. These are:
-
-* Add posibility to comment on posts
-* Come up with a name for the blog and buy an .com domain
-* Change the tab logo to one specifically made for me.
-* Add tags to the blog posts.
-* Add a way to filter blog posts according to tags
+* Make the tags look nicer.
+* Better filtering of blog post based on tags.
 
 I want to have the following tags:
 
