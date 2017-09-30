@@ -52,7 +52,7 @@ text_file.write(div)
 text_file.close()
 ```
 
-Then this ```div``` should be saved as a ```.html``` file and placed on the following path. ```_includes/_plots/```. Finally, in order to include it in a ```.md``` blog post, the following code can be used:
+This this file should be placed on the following path. ```_includes/_plots/```. Finally, in order to include it in a ```.md``` blog post, the following code can be used:
 
 ```
 <body> {% include _plots/example_plot.html %} </body>
