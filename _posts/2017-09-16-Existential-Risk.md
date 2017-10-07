@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Existential Risk
-tags: why
+description: this is a post
+tags: [why]
 comments: true
 live: true
 ---

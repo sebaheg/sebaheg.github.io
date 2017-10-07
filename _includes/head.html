@@ -24,9 +24,12 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   {% endif %}
 
-  <script type="text/javascript" async
-    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-  </script>
+  <!-- Enable LaTeX/MathJax -->
+  {% if page.mathjax %}
+    <script type="text/javascript"
+      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+  {% endif %}
 
   <!-- Google analytics -->
   {% if jekyll.environment == 'production' %}

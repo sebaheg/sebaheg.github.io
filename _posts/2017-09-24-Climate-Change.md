@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Climate Change
-tags: climate-change why
+tags: [climate-change, why]
+description: this is also a post
 comments: true
 live: true
 ---

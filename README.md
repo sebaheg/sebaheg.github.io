@@ -12,6 +12,7 @@ As always, I have way more ideas than I have time to realise. These are the blog
 here is about the optimism in climate change (al gore) https://www.ted.com/talks/al_gore_the_case_for_optimism_on_climate_change
 1. The Energy Transformation (structural change of energy system)
 1. The Grid Stability Problem (TSO - SVK)
+1. Syntetic inertia wind turbines canada
 1. System integration problem https://www.iea.org/topics/renewables/systemintegration/
 1. Flexibility is Key (key for allowing for transformation, what are the sources of flexibility?)
 1. Day-Ahead Electricity Market (from physical problem to market design)

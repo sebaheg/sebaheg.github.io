@@ -4,19 +4,23 @@ layout: default
 
 <div class="post">
   <h1 class="post-title">{{ page.title }}</h1>
-  <span class="post-date">{{ page.date | date_to_string }}</span>
+  <!-- Add date and comment counts -->
+  <span class="post-date">{{ page.date | date_to_string }}
+    <br>
+    <!-- Add tags -->
+    {% capture page_tags %}{% for tag in page.tags %}{{ tag }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
+    {% assign tag_words = page_tags | split:',' | sort %}
 
-  <i class="fa fa-tags"></i>
-  <span>
-  {% for tag in page.tags %}
-    {% capture tag_name %}{{ tag }}{% endcapture %}
-    <a href="/tag/{{ tag_name }}" style="background-color: #e0e0e0"><font size="3" color="black">{{ tag_name }}</font></a>
-  {% endfor %}
+    <ul class="tag-box inline">
+     {% for item in (0..page.tags.size) %}{% unless forloop.last %}
+      {% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
+      <li><a href="/tags/#{{ this_word | cgi_escape }}">{{ this_word }}<span>{{ site.tags[this_word].size }}</span></a></li>
+     {% endunless %}{% endfor %}
+    </ul>
   </span>
 
-  <br>
-
   {{ content }}
+
 </div>
 
 <div class="related">
