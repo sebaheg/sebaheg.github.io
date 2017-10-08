@@ -2,7 +2,7 @@
 layout: post
 title: Climate Change
 tags: [climate-change, why]
-description: this is also a post
+description: Climate change is one of the largest existential threats in this century. In this post I explain how the climate is changing and what might be its implications.
 comments: true
 live: true
 ---

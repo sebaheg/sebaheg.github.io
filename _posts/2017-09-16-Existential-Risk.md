@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Existential Risk
-description: this is a post
+description: The human species is currently the most successful species of Earth. But in order not follow the same fate as the dinosaurs, we need to be aware of and precautious about possible existential risk.
 tags: [why]
 comments: true
 live: true
@@ -12,9 +12,9 @@ To me, this analogy makes it clear how fragile and insignificant our life on ear
 
 ![Existential Risks](/images/upcoming-existential-risks.png)
 
-On the big time scales, we are concerned with astronomical and geological threats. These are for example the death of the sun, earth getting hit by asteroids and supervolcanoes causing volcanic winters. These are threats that are non antropogentic and hopefully we will be able to handle them with the technology available when the time comes. On the small time scales, the threats are post by humanity itself. They range from human activity causing climate change and loss of biodiversity to carelessly dealing with powerful future technology. In the light of these threats, I am not worried about getting hit by an asteroid.
+On the big time scales, we are concerned with astronomical and geological threats. These are for example the death of the sun, earth getting hit by asteroids and supervolcanoes causing volcanic winters. These are threats that are non anthropogenic and hopefully we will be able to handle them with the technology available when the time comes. On the small time scales, the threats are post by humanity itself. They range from human activity causing climate change and loss of biodiversity to carelessly dealing with powerful future technology. In the light of these threats, I am not worried about getting hit by an asteroid.
 
-An existential catastropy is something that, by definition, never has happend in all of human history. Therefore, we can not us our old technique to learn from our mistakes - by then it is too late. In stead, we must develop technological foresight if we want to survive the century. Even though an event is unlikely, it is worth safeguarding against it if its concequences are devastating. This is referred to as the [precautionary principle](https://en.wikipedia.org/wiki/Precautionary_principle). Elon Musk applies this principle to climate change by calling the emission of greenhouse gases into the atmosphere ["The Dumbest Experiment in History"](https://www.youtube.com/watch?v=znukFtaWPAw). The same principle should be applied for powerful future technology such as general artificial intelligence (AGI), syntetic biology and molecular nanotechnology.
+An existential catastrophe is something that, by definition, never has happened in all of human history. Therefore, we can not us our old technique to learn from our mistakes - by then it is too late. In stead, we must develop technological foresight if we want to survive the century. Even though an event is unlikely, it is worth safeguarding against it if its consequences are devastating. This is referred to as the [precautionary principle](https://en.wikipedia.org/wiki/Precautionary_principle). Elon Musk applies this principle to climate change by calling the emission of greenhouse gases into the atmosphere ["The Dumbest Experiment in History"](https://www.youtube.com/watch?v=znukFtaWPAw). The same principle should be applied for powerful future technology such as general artificial intelligence (AGI), synthetic biology and molecular nanotechnology.
 
 In a wider perspective, an existential risk is defined by Nick Boström, a philosopher working in the field, as:
 
@@ -22,7 +22,7 @@ In a wider perspective, an existential risk is defined by Nick Boström, a philo
 "One that threatens the premature extinction of Earth-originating intelligent life or the permanent and drastic destruction of its potential for desirable future development."
 </p>
 
-The core is that an existential risk are those risks that threaten the entire future of humanity - not just the present generation, but all future generations. But Boströms scope of existential risk is a bit bigger, it also incorporates situations such as permanent stagnation, flawed realization and subsequent ruination. Basically, he argues that not fulfilling the highest potential of technological development constitutes an existential risk. I am not sure I agree with him. I think it would be alright for humanity to follow a path of where the full technological potential is not fulfilled if that state could be maintained and protected for human extinction. What do you think?
+The core is that an existential risk are those risks that threaten the entire future of humanity - not just the present generation, but all future generations. But Boström's scope of existential risk is a bit bigger, it also incorporates situations such as permanent stagnation, flawed realization and subsequent ruination. Basically, he argues that not fulfilling the highest potential of technological development constitutes an existential risk. I am not sure I agree with him. I think it would be alright for humanity to follow a path of where the full technological potential is not fulfilled if that state could be maintained and protected for human extinction. What do you think?
 
 ## References
 * Nick Boström, Existential Risk Prevention as Global

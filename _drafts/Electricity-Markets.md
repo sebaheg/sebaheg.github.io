@@ -6,6 +6,11 @@ tags: electricity-market energy
 comments: true
 live: true
 ---
+Vårt systemansvar innebär att vi ska se till att det alltid råder kortsiktig balans mellan produktion och förbrukning av el i hela landet. Men vi har inte ansvar för att det finns tillräckligt med produktion för att möta förbrukningen i landet. Det ansvaret vilar på de företag som är balansansvariga.
+
+http://www.svk.se/drift-av-stamnatet/drift-och-marknad/
+
+
 
 Therefore, special measures have to be taken on the physical market (which is coupled with actual delivery).
 

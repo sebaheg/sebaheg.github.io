@@ -90,13 +90,13 @@ In all examples, the frequency fell initially and then recovered back to normal 
   </tbody>
 </table>
 
-We already discussed the inertia of rotating machinery and its analogy to the bike. The other mechanisms are regulating power on different time scales. The primary regulation is specific power units (often hydro power in Sweden) that have frequency sensitive equipment attached to them. This equipment controls the unit to increase production as frequency falls and decrease production as it rises. The goal of the primary regulation is to stop the frequency from changing.
-
-In the Nordic power system there is about 600 MW of primary regulation (of which 250 MW in Sweden) available within 50 \\( \pm \\) 0.1 Hz. To take the frequency back to 50 Hz, the tertiary regulation is used. The existence and role of secondary regulation changes somewhat from different countries. An example of how the different variables interplay in the case of an outage (and redeployment) of a 30 MW production unit is illustrated below.
+We already discussed the inertia of rotating machinery and its analogy to the bike. The other mechanisms are regulating power on different time scales. The primary regulation is specific power units (often hydro power in Sweden) that have frequency sensitive equipment attached to them. This equipment controls the unit to increase production as frequency falls and decrease production as it rises. The goal of the primary regulation is to stop the frequency from changing. In the Nordic power system there is about 600 MW of primary regulation (of which 250 MW in Sweden) available within 50 \\( \pm \\) 0.1 Hz. To take the frequency back to 50 Hz, the tertiary regulation is used. The existence and role of secondary regulation changes somewhat from different countries. An example of how the different variables interplay in the case of an outage (and redeployment) of a 30 MW production unit is illustrated below.
 
 <p align="center">
   <img width="520" height="350" src="/images/power-system-control.jpeg">
 </p>
+
+Most regulating power is part of the spinning reserve. This means that they are already connected to the power system and just need to ramp their power output to contribute to balancing the grid. There is also regulating power in form of non-spinning reserve. These are not already connected to the power system but can be brought online after a short delay (start-up time). The spinning reserve is generally more reliable than the non-spinning reserve.  
 
 As mentioned, the TSO has the responsible of keeping the frequency at nominal level. In order to achieve that, they have several tools at their disposal that all together constitutes the full control system. The full strategy of the Swedish TSO for keeping the balance in the power system is given by the table below. Notice that frequencies are approximate.
 
@@ -143,6 +143,6 @@ This post gives glance into how power system works. There is of course a lot mor
 
 ### References
 * Lennart Söder, På väg mot en elförsörjning baserad på enbart förnybar el i Sverige, 2014
-* Svenska Kraftnät, [www.svk.se](https://www.svk.se/en)
+* Svenska Kraftnät, [www.svk.se](http://www.svk.se/en)
 * Wikipedia, [Ancillary services](https://en.wikipedia.org/wiki/Ancillary_services_(electric_power))
 * Wikipedia, [Electrical power system](https://en.wikipedia.org/wiki/Electric_power_system)

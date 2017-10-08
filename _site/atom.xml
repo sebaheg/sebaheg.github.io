@@ -4,7 +4,7 @@
  <title>El Niño</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-10-07T22:56:57+02:00</updated>
+ <updated>2017-10-08T19:56:49+02:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name></name>
@@ -102,13 +102,13 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;We already discussed the inertia of rotating machinery and its analogy to the bike. The other mechanisms are regulating power on different time scales. The primary regulation is specific power units (often hydro power in Sweden) that have frequency sensitive equipment attached to them. This equipment controls the unit to increase production as frequency falls and decrease production as it rises. The goal of the primary regulation is to stop the frequency from changing.&lt;/p&gt;
-
-&lt;p&gt;In the Nordic power system there is about 600 MW of primary regulation (of which 250 MW in Sweden) available within 50 \( \pm \) 0.1 Hz. To take the frequency back to 50 Hz, the tertiary regulation is used. The existence and role of secondary regulation changes somewhat from different countries. An example of how the different variables interplay in the case of an outage (and redeployment) of a 30 MW production unit is illustrated below.&lt;/p&gt;
+&lt;p&gt;We already discussed the inertia of rotating machinery and its analogy to the bike. The other mechanisms are regulating power on different time scales. The primary regulation is specific power units (often hydro power in Sweden) that have frequency sensitive equipment attached to them. This equipment controls the unit to increase production as frequency falls and decrease production as it rises. The goal of the primary regulation is to stop the frequency from changing. In the Nordic power system there is about 600 MW of primary regulation (of which 250 MW in Sweden) available within 50 \( \pm \) 0.1 Hz. To take the frequency back to 50 Hz, the tertiary regulation is used. The existence and role of secondary regulation changes somewhat from different countries. An example of how the different variables interplay in the case of an outage (and redeployment) of a 30 MW production unit is illustrated below.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
   &lt;img width=&quot;520&quot; height=&quot;350&quot; src=&quot;/images/power-system-control.jpeg&quot; /&gt;
 &lt;/p&gt;
+
+&lt;p&gt;Most regulating power is part of the spinning reserve. This means that they are already connected to the power system and just need to ramp their power output to contribute to balancing the grid. There is also regulating power in form of non-spinning reserve. These are not already connected to the power system but can be brought online after a short delay (start-up time). The spinning reserve is generally more reliable than the non-spinning reserve.&lt;/p&gt;
 
 &lt;p&gt;As mentioned, the TSO has the responsible of keeping the frequency at nominal level. In order to achieve that, they have several tools at their disposal that all together constitutes the full control system. The full strategy of the Swedish TSO for keeping the balance in the power system is given by the table below. Notice that frequencies are approximate.&lt;/p&gt;
 
@@ -156,7 +156,7 @@
 &lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Lennart Söder, På väg mot en elförsörjning baserad på enbart förnybar el i Sverige, 2014&lt;/li&gt;
-  &lt;li&gt;Svenska Kraftnät, &lt;a href=&quot;https://www.svk.se/en&quot;&gt;www.svk.se&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Svenska Kraftnät, &lt;a href=&quot;http://www.svk.se/en&quot;&gt;www.svk.se&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Wikipedia, &lt;a href=&quot;https://en.wikipedia.org/wiki/Ancillary_services_(electric_power)&quot;&gt;Ancillary services&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Wikipedia, &lt;a href=&quot;https://en.wikipedia.org/wiki/Electric_power_system&quot;&gt;Electrical power system&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -275,9 +275,9 @@
 
 &lt;p&gt;&lt;img src=&quot;/images/upcoming-existential-risks.png&quot; alt=&quot;Existential Risks&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;On the big time scales, we are concerned with astronomical and geological threats. These are for example the death of the sun, earth getting hit by asteroids and supervolcanoes causing volcanic winters. These are threats that are non antropogentic and hopefully we will be able to handle them with the technology available when the time comes. On the small time scales, the threats are post by humanity itself. They range from human activity causing climate change and loss of biodiversity to carelessly dealing with powerful future technology. In the light of these threats, I am not worried about getting hit by an asteroid.&lt;/p&gt;
+&lt;p&gt;On the big time scales, we are concerned with astronomical and geological threats. These are for example the death of the sun, earth getting hit by asteroids and supervolcanoes causing volcanic winters. These are threats that are non anthropogenic and hopefully we will be able to handle them with the technology available when the time comes. On the small time scales, the threats are post by humanity itself. They range from human activity causing climate change and loss of biodiversity to carelessly dealing with powerful future technology. In the light of these threats, I am not worried about getting hit by an asteroid.&lt;/p&gt;
 
-&lt;p&gt;An existential catastropy is something that, by definition, never has happend in all of human history. Therefore, we can not us our old technique to learn from our mistakes - by then it is too late. In stead, we must develop technological foresight if we want to survive the century. Even though an event is unlikely, it is worth safeguarding against it if its concequences are devastating. This is referred to as the &lt;a href=&quot;https://en.wikipedia.org/wiki/Precautionary_principle&quot;&gt;precautionary principle&lt;/a&gt;. Elon Musk applies this principle to climate change by calling the emission of greenhouse gases into the atmosphere &lt;a href=&quot;https://www.youtube.com/watch?v=znukFtaWPAw&quot;&gt;“The Dumbest Experiment in History”&lt;/a&gt;. The same principle should be applied for powerful future technology such as general artificial intelligence (AGI), syntetic biology and molecular nanotechnology.&lt;/p&gt;
+&lt;p&gt;An existential catastrophe is something that, by definition, never has happened in all of human history. Therefore, we can not us our old technique to learn from our mistakes - by then it is too late. In stead, we must develop technological foresight if we want to survive the century. Even though an event is unlikely, it is worth safeguarding against it if its consequences are devastating. This is referred to as the &lt;a href=&quot;https://en.wikipedia.org/wiki/Precautionary_principle&quot;&gt;precautionary principle&lt;/a&gt;. Elon Musk applies this principle to climate change by calling the emission of greenhouse gases into the atmosphere &lt;a href=&quot;https://www.youtube.com/watch?v=znukFtaWPAw&quot;&gt;“The Dumbest Experiment in History”&lt;/a&gt;. The same principle should be applied for powerful future technology such as general artificial intelligence (AGI), synthetic biology and molecular nanotechnology.&lt;/p&gt;
 
 &lt;p&gt;In a wider perspective, an existential risk is defined by Nick Boström, a philosopher working in the field, as:&lt;/p&gt;
 
@@ -285,7 +285,7 @@
 &quot;One that threatens the premature extinction of Earth-originating intelligent life or the permanent and drastic destruction of its potential for desirable future development.&quot;
 &lt;/p&gt;
 
-&lt;p&gt;The core is that an existential risk are those risks that threaten the entire future of humanity - not just the present generation, but all future generations. But Boströms scope of existential risk is a bit bigger, it also incorporates situations such as permanent stagnation, flawed realization and subsequent ruination. Basically, he argues that not fulfilling the highest potential of technological development constitutes an existential risk. I am not sure I agree with him. I think it would be alright for humanity to follow a path of where the full technological potential is not fulfilled if that state could be maintained and protected for human extinction. What do you think?&lt;/p&gt;
+&lt;p&gt;The core is that an existential risk are those risks that threaten the entire future of humanity - not just the present generation, but all future generations. But Boström’s scope of existential risk is a bit bigger, it also incorporates situations such as permanent stagnation, flawed realization and subsequent ruination. Basically, he argues that not fulfilling the highest potential of technological development constitutes an existential risk. I am not sure I agree with him. I think it would be alright for humanity to follow a path of where the full technological potential is not fulfilled if that state could be maintained and protected for human extinction. What do you think?&lt;/p&gt;
 
 &lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
