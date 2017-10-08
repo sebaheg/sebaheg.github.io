@@ -4,7 +4,7 @@
  <title>El Niño</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-10-08T20:13:06+02:00</updated>
+ <updated>2017-10-08T21:40:17+02:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name></name>
@@ -151,7 +151,7 @@
 &lt;p&gt;A part from voltage and frequency regulation issues, the loads in a power system can be adversely affected by a range of temporal issues. This can for example be voltage sags, dips and swells, transient overvoltages, flicker and high frequency noise (also called harmonics). All these are basically deviations from an AC perfect sine wave with current and voltage in-sync at a prescribed frequency and voltage. Power quality issues is a complete topic by itself. However, it is good to know that it exists and the some specialist in specialist industrial machinery or hospital equipment might be sensitive to it.&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;This post gives glance into how power system works. There is of course a lot more to it. But with this basic understanding, it is possible to make qualitative arguments on how different changes or events would affect the system. For example, what would be the implications of more intermittent wind power in the power system? Or what happens if a large production unit is lost? The next step is to link the physical constraints of the power system with market design, but that is the topic for another post.&lt;/p&gt;
+&lt;p&gt;This post gives a glance into how power system works. There is of course a lot more to it. But with this basic understanding, it is possible to make qualitative arguments on how different changes or events would affect the system. For example, what would be the implications of more intermittent wind power in the power system? Or what happens if a large production unit goes down? The next step is to link the physical constraints of the power system with market design, but that is the topic for another post.&lt;/p&gt;
 
 &lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
 &lt;ul&gt;
