@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Existential Risk
-description: The human species is currently the most successful species of Earth. But in order not follow the same fate as the dinosaurs, we need to be aware of and precautious about possible existential risk.
+description: The human species is currently the most successful species of Earth. But in order not follow the same fate as the dinosaurs, we need to be aware of and be precautious about possible existential risk.
 tags: [why]
 comments: true
 live: true
