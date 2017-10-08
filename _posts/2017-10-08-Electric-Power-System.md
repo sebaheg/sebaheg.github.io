@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Electrical Power System
+title: Electric Power System
 description: What is a power system? And what is necessary for it to function even in the event of external and internal disturbances? In this post we will find out.
 tags: [energy, power-system]
 mathjax: true
