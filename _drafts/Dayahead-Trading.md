@@ -14,6 +14,10 @@ Therefore, special measures have to be taken on the physical market (which is co
  In deregulated markets: Power price is set by the marginal cost. The cost of the power plant with the highest operation cost sets the price for everyone. COPY
 
 
+ Wind power producer (and every other producer and consumer of electricity) have to report production and consumption separately in all price areas. The reason for multiple areas is include physical constraints on the transmission capacity in the design of the electricity market. This allows for different prices (set by the supply and demand curves) in different regions depending on their specific production and consumption. Ideally, this design would incentivize investment of production plants in regions with high supply. In the Swedish electricity market prices are usually coupled between all areas. However, since most of the production of electricity is in the north and the consumption centres are in the south decoupling between Swedish area SE1 and SE2 do happen sometimes.
+
+
+
 ### References
 * Wikipedia, [Electricity market](https://en.wikipedia.org/wiki/Electricity_market)
 * NordPool, [Intraday trading](http://www.nordpoolspot.com/TAS/intraday-trading/)

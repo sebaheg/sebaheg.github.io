@@ -4,21 +4,21 @@ In this blog, I am writing about how algorithms can help in the fight against cl
 ## Planned Blog Posts
 As always, I have way more ideas than I have time to realise. These are the blog posts I have planned for at the moment:
 
-1. Existential risk
-1. Climate Change (history and joseph fourier)
 1. Big World, Small Planet
 1. The Bill Gates Equation
-1. The Rise of Renewable Energy (Reference IEA report) and exponential growth. It is possible to do something about climate change.
+1. The Rise of Renewable Energy (Reference IEA report) and exponential growth. It is possible to do something about climate change?
 here is about the optimism in climate change (al gore) https://www.ted.com/talks/al_gore_the_case_for_optimism_on_climate_change
 1. The Energy Transformation (structural change of energy system)
 1. The Grid Stability Problem (TSO - SVK)
-1. Syntetic inertia wind turbines canada
+1. Syntetic inertia wind turbines Canada
+1. Write about job satisfaction and entrepreneurship, use the vien diagram
 1. System integration problem https://www.iea.org/topics/renewables/systemintegration/
 1. Flexibility is Key (key for allowing for transformation, what are the sources of flexibility?)
 1. Day-Ahead Electricity Market (from physical problem to market design)
 1. Intraday Electricity Market (not really a market more a horizon)
 1. Artificial Intelligence (what is artificial intelligence)
 1. Artificial Intelligence in Energy (include MIT Review)
+1. PPAs and GOs. What is it and what is it for? Different ways of setting up the PPA etc.
 1. The Electricity Forecast Problem (what is the problem and how can it be defined)
 1. Uncertainty in Electricity Forecasts (why is it needed? refer to paper)
 1. Regional windpower data in sweden
@@ -36,6 +36,12 @@ here is about the optimism in climate change (al gore) https://www.ted.com/talks
 1. Computational fluid dynamics
 
 ## Mathjax
+Equations can be typeset using the LaTeX compiler MathJax.
+
+```
+
+```
+
 
 ## Interactive Plots
 This blog is capable of handing interactive plots with [plotly](https://plot.ly/). To add an interactive plot, first one has to get the ```div``` using a plotly function according to:
@@ -58,11 +64,6 @@ This this file should be placed on the following path: ```_includes/_plots/```. 
 ```
 <body> {% include _plots/example_plot.html %} </body>
 ```
-
-## Planned Changes to the Blog
-There are wanted changes to the blog that still are not implemented in the jekyll tempelate. These are:
-* Make the tags look nicer.
-* Better filtering of blog post based on tags.
 
 I want to have the following tags:
 

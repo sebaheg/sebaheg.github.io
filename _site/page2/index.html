@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      El Niño &middot; Algorithms to Fight Global Warming
+    
+  </title>
+
+  <!-- Include tags -->
+  
+    
+
+
+
+
+
+
+  
+
+  <!-- Enable Plotly -->
+  
+
+  <!-- Enable LaTeX/MathJax -->
+  
+
+  <!-- Google analytics -->
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="192x192" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/public/favicon.png">
+
+  <!-- Social icons -->
+  <link rel="stylesheet" href="/public/font-awesome/css/font-awesome.min.css">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="layout-reverse sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  
+  <div class="sidebar-item">
+    <p></p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">
+      <i class="fa fa-home fa-fw" aria-hidden="true"></i> Home
+    </a>
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">
+            <i class="fa fa-fw fa-user-circle" aria-hidden="true"></i> About Me
+          </a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/tags/">
+            <i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags
+          </a>
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="https://www.linkedin.com/in/sebastian-haglund-el-gaidi-27a912b2/">
+      <i class="fa fa-fw fa-linkedin"></i> LinkedIn
+    </a>
+
+    <a class="sidebar-nav-item" href="https://github.com/sebaheg">
+      <i class="fa fa-fw fa-github"></i> GitHub
+    </a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>&copy; 2017. All rights reserved.</p>
+  </div>
+
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">El Niño</a>
+            <small>Algorithms to Fight Global Warming</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="posts">
+  
+    
+    <div class="post">
+      <h1 class="post-title">
+        <a href="/2017/10/08/Electric-Power-System/">
+          Electric Power System
+        </a>
+      </h1>
+
+      <!-- Add date and comment counts -->
+      <span class="post-date">08 Oct 2017
+        <br>
+        <!-- Add tags -->
+        
+        
+
+        <ul class="tag-box inline">
+         
+          
+          <li><a href="/tags/#energy">energy<span>4</span></a></li>
+         
+          
+          <li><a href="/tags/#power-system">power-system<span>1</span></a></li>
+         
+        </ul>
+      </span>
+
+      What is a power system? And what is necessary for it to function even in the event of external and internal disturbances? In this post we will find out.
+      <br>
+
+      
+        <a href="/2017/10/08/Electric-Power-System/#disqus_thread">Comments</a>
+      
+
+      <!-- add this to include post content in home -->
+      <!--<p>Today, many of us take electricity for granted. Still, the benefits we get from the use of it are crucial for the functioning of our modern society. It is one of our highest prioritised national security issues. What seems so simple when plugging the charger into the power outlet at home, actually has a lot more to it. There is a whole machinery holding everything in place, from power transmission to production facilities and control system. In this blog post, we will dive into what the power system is and what is needed for it to function. Electric power engineering is not my core expertise, so feel free to correct me in the comments at any point along the way.</p>
+
+<h2 id="what-is-the-goal-of-the-power-system">What is the goal of the power system?</h2>
+<p>The goal of the power system is threefold:</p>
+
+<ul>
+  <li>Consumer should get electricity whenever they want, no matter any external or internal disturbance to the power system such as weather or outages of production units.</li>
+  <li>The consumer must have a realistic voltage (e.g. 230 V in Sweden) in the power outlet.</li>
+  <li>The previous points should be obtained in an economic and sustainable way at a realistic reliability. This reliability is never 100 percent.</li>
+</ul>
+
+<h2 id="what-are-the-parts-of-the-power-system">What are the parts of the power system?</h2>
+<p>The power system can be divided into four parts: generation, transmission, distribution and utilization. An illustration of a modern, deregulated power system (the Nordic power system) is given in the figure below.</p>
+
+<p align="center">
+  <img width="450" height="380" src="/images/power-system.jpeg" />
+</p>
+
+<p>Electricity is not a form of primary energy freely present in nature in large quantities. It must be produced by transforming energy in some other form to electrical energy. This is called generation and is carried out in power plants. The generation and utilization of electricity is typically not located in the same place. Therefore, it needs to be transported someone between these points. This is done using the transmission network (national grid), which is the highways of the power system. Electricity is flowing in a bulk movement from the generation site and onto the transmission network close to the speed of light.</p>
+
+<p>The voltage on the transmission network is high in order to limit the current and thus also the electrical losses (see <a href="https://en.wikipedia.org/wiki/Joule_heating">Joule heating</a>). Customers, on the other side, need realistic voltage levels (e.g. 230 V in Sweden) for their appliances. For this reason, the voltage is transformed down on the distribution network (local grid) which carries electricity to the individual consumers. Some power systems have an intermediary voltage level (regional grid) between the transmission and distribution networks. The utilization of electricity ranges from large industries like steel manufacturing and railway transport to our our appliances for cooking and entertainment at home</p>
+
+<h2 id="alternating-vs-direct-current">Alternating vs direct current</h2>
+<p>The majority of electrical power systems are based on three-phase alternating current (AC), which has become the standard for large-scale power transmission and distribution. Three-phase current is ideal in the sense that the sum of the power output from all phases is constant. This lets synchronous motors be driven with constant torque. Historically, it was easier to convert AC than direct current (DC) between different voltage levels. However, nowadays it is possible to do change the voltage level also with DC. In fact, it might even be better alternative since most appliances are DC powered, like our computers and phones. But because of the immense economic investment already made in the current system it is not likely that this would happen anytime in the near future.</p>
+
+<h2 id="synchronous-power-system">Synchronous power system</h2>
+<p>In a synchronous power system, all producers and consumers are connected to each other through the transmission and distribution network together with transformers. The speed at which rotors spin, in combination with the number of generator poles, determines the frequency of the alternating current produced by the generators. The frequency in a synchronous power system is the same everywhere in the system. This means that all generators must rotate at sub-multiples of the same speed. However, an exception to this is generators that are connected through power electronics (such as gear-less wind turbines) or that are linked to a grid through an asynchronous tie (such as a HVDC link). These generators can operate at frequencies completely independent of the power system frequency. The synchronous power systems in Europe are shown below.</p>
+
+<p align="center">
+  <img width="300" height="300" src="/images/synchronous-system.png" />
+</p>
+
+<h2 id="balancing-the-power-system">Balancing the power system</h2>
+<p>One peculiarity with electricity is that it must be produced and consumed at the same time. The amount of active power consumed plus the losses always equals the active power produced. In a situation where there is more consumption than production of active power, the remaining active power is provided by the inertia of the rotating machinery. This lowers the frequency of the AC on the grid. In Europe, the predetermined nominal frequency is 50 Hz (in North America this is 60 Hz). Even small deviations from the nominal frequency value could damage synchronous machines and other appliances. It is normal that the frequency varies around 50 \( \pm \) 0.1 Hz. The Swedish transmission system operator (TSO) publishes data regarding the instantaneous frequency in real time <a href="http://www.svk.se/en/national-grid/the-control-room/">here</a>. You can learn a lot about the power system just by observing the frequency, power flows and generation on that site. To make the physics of the power system more tangible, we can draw an analogy with a long bike as shown below.</p>
+
+<p align="center">
+  <img width="400" height="300" src="/images/bike.jpeg" />
+</p>
+
+<p>The speed of the bike is given by the balance between the air and rolling resistance and the summed peddling forces by all riders (Newton’s second law of motion). If these opposite forces are equal, then the speed is constant. This is exactly the same as how the power system works. The speed and inertia of the bike represents the frequency in the power system and inertia of the rotating machinery respectively. Just as the frequency of a synchronous power system is the same wherever you measure it, the speed of the bike is the same everywhere on the bike. The one responsible for the speed of the bike corresponds to the TSO in the power system. Every rider is a generating unit and the air and rolling resistance represent the electrical load. If one of the riders would stop pedaling (corresponding to an outage of a power plant), then the speed would decrease (frequency would drop). As the speed decreases, the air resistance also decrease. This is similar to a power system where an outage would lead to lower voltage and frequency, which in turn lowers the load. In the Nordic power system an outage of 1200 MW would lead to approximately 200 MW decrease in load.</p>
+
+<p>In addition to the power used by a load to do useful work (active power), many AC devices also use an additional amount of power since they cause the AC voltage and current to become out-of-sync (reactive power). When the voltage and current is not perfectly aligned, the electrical power is not given by product of current and voltage as is the case for DC. Instead the total power (apparent power) can be decomposed into active and reactive power. Reactive power does not do any real work but is transmitted back and forth between the reactive power source and load every cycle. This extra current on the power lines leads to thermal losses. Therefore, too much reactive power is undesirable. However, some reactive power is needed to maintain the voltage levels on the grid. The reactive power, just like the active power, must be balanced. There must be as much reactive generation (capacitance) as load (reactance). This is equivalent to keeping the bike in an upright position, having the same forcing on left and right hand side. However, the voltage is not the same in the whole power system, it is provided locally.</p>
+
+<h2 id="control-system">Control system</h2>
+<p>The active power balance between power generation and demand in the power system can be disturbed by several different factors. These can for instance be variations of weather dependent power generation and demand or outages of generation units or transmission lines. Therefore, a sophisticated control system is required in order to maintain the required balance. In the event of a large generating unit outage, standby regulating capacity must fill its place. Three such examples of large nuclear outages in Sweden are shown below.</p>
+
+<p align="center">
+  <img width="480" height="300" src="/images/outages.jpeg" />
+</p>
+
+<p>In all examples, the frequency fell initially and then recovered back to normal levels. This is thanks to several stabilising mechanisms that are used to control the frequency. These mechanisms operate on different time scales given in the table presented below.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mechanism</th>
+      <th>Time scale</th>
+      <th>Activation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Inertia</td>
+      <td>Instantaneous</td>
+      <td>Physical</td>
+    </tr>
+    <tr>
+      <td>Primary regulation</td>
+      <td>Seconds to minutes</td>
+      <td>Automatic</td>
+    </tr>
+    <tr>
+      <td>Secondary regulation</td>
+      <td>Minutes to hours</td>
+      <td>Automatic</td>
+    </tr>
+    <tr>
+      <td>Tertiary regulation</td>
+      <td>Minutes to hours</td>
+      <td>Manual</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We already discussed the inertia of rotating machinery and its analogy to the bike. The other mechanisms are regulating power on different time scales. The primary regulation is specific power units (often hydro power in Sweden) that have frequency sensitive equipment attached to them. This equipment controls the unit to increase production as frequency falls and decrease production as it rises. The goal of the primary regulation is to stop the frequency from changing. In the Nordic power system there is about 600 MW of primary regulation (of which 250 MW in Sweden) available within 50 \( \pm \) 0.1 Hz. To take the frequency back to 50 Hz, the tertiary regulation is used. The existence and role of secondary regulation changes somewhat from different countries. An example of how the different variables interplay in the case of an outage (and redeployment) of a 30 MW production unit is illustrated below.</p>
+
+<p align="center">
+  <img width="520" height="350" src="/images/power-system-control.jpeg" />
+</p>
+
+<p>Most regulating power is part of the spinning reserve. This means that they are already connected to the power system and just need to ramp their power output to contribute to balancing the grid. There is also regulating power in form of non-spinning reserve. These are not already connected to the power system but can be brought online after a short delay (start-up time). The spinning reserve is generally more reliable than the non-spinning reserve.</p>
+
+<p>As mentioned, the TSO has the responsible of keeping the frequency at nominal level. In order to achieve that, they have several tools at their disposal that all together constitutes the full control system. The full strategy of the Swedish TSO for keeping the balance in the power system is given by the table below. Notice that frequencies are approximate.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Frequency [Hz]</th>
+      <th>Measure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Always</td>
+      <td>Export/import of electricity to/from neighbouring areas</td>
+    </tr>
+    <tr>
+      <td>49.9-50.1</td>
+      <td>Activation of primary and secondary regulation</td>
+    </tr>
+    <tr>
+      <td>49.8-49.9</td>
+      <td>Activation of tertiary regulation and pumping stop</td>
+    </tr>
+    <tr>
+      <td>49.5-49.7</td>
+      <td>Activation of gas turbines and automatic load shedding of heat pumps and boilers</td>
+    </tr>
+    <tr>
+      <td>49.0-49.7</td>
+      <td>Power reserve and emergency power DC-links</td>
+    </tr>
+    <tr>
+      <td>Below 49.0</td>
+      <td>Manual load shedding of specific regions</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="power-quality">Power quality</h2>
+<p>A part from voltage and frequency regulation issues, the loads in a power system can be adversely affected by a range of temporal issues. This can for example be voltage sags, dips and swells, transient overvoltages, flicker and high frequency noise (also called harmonics). All these are basically deviations from an AC perfect sine wave with current and voltage in-sync at a prescribed frequency and voltage. Power quality issues is a complete topic by itself. However, it is good to know that it exists and the some specialist in specialist industrial machinery or hospital equipment might be sensitive to it.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>This post gives a glance into how power system works. There is of course a lot more to it. But with this basic understanding, it is possible to make qualitative arguments on how different changes or events would affect the system. For example, what would be the implications of more intermittent wind power in the power system? Or what happens if a large production unit goes down? The next step is to link the physical constraints of the power system with market design, but that is the topic for another post.</p>
+
+<h3 id="references">References</h3>
+<ul>
+  <li>Lennart Söder, På väg mot en elförsörjning baserad på enbart förnybar el i Sverige, 2014</li>
+  <li>Svenska Kraftnät, <a href="http://www.svk.se/en">www.svk.se</a></li>
+  <li>Wikipedia, <a href="https://en.wikipedia.org/wiki/Ancillary_services_(electric_power)">Ancillary services</a></li>
+  <li>Wikipedia, <a href="https://en.wikipedia.org/wiki/Electric_power_system">Electrical power system</a></li>
+</ul>
+-->
+
+    </div>
+    
+  
+    
+    <div class="post">
+      <h1 class="post-title">
+        <a href="/2017/10/06/Intraday-Trading/">
+          Intraday Trading
+        </a>
+      </h1>
+
+      <!-- Add date and comment counts -->
+      <span class="post-date">06 Oct 2017
+        <br>
+        <!-- Add tags -->
+        
+        
+
+        <ul class="tag-box inline">
+         
+          
+          <li><a href="/tags/#electricity-market">electricity-market<span>4</span></a></li>
+         
+        </ul>
+      </span>
+
+      Intraday trading is something special
+      <br>
+
+      
+        <a href="/2017/10/06/Intraday-Trading/#disqus_thread">Comments</a>
+      
+
+      <!-- add this to include post content in home -->
+      <!--<p>In a previous post, I wrote about dayahead electricity trading. In this post we will explore trading of electricity the same day as delivery, called intraday trading.</p>
+
+<h3 id="references">References</h3>
+<ul>
+  <li>NordPool, <a href="http://www.nordpoolspot.com/TAS/intraday-trading/">Intraday trading</a></li>
+  <li>Powel, https://www.powel.com/news/revolutionising-intraday-trading/
+*</li>
+  <li>Powel, https://www.powel.com/news/revolutionising-intraday-trading/</li>
+</ul>
+-->
+
+    </div>
+    
+  
+    
+    <div class="post">
+      <h1 class="post-title">
+        <a href="/2017/10/03/Flexibility-is-Key/">
+          Flexibility is Key
+        </a>
+      </h1>
+
+      <!-- Add date and comment counts -->
+      <span class="post-date">03 Oct 2017
+        <br>
+        <!-- Add tags -->
+        
+        
+
+        <ul class="tag-box inline">
+         
+          
+          <li><a href="/tags/#electricity-market">electricity-market<span>4</span></a></li>
+         
+          
+          <li><a href="/tags/#energy">energy<span>4</span></a></li>
+         
+        </ul>
+      </span>
+
+      The day-ahead electricity
+      <br>
+
+      
+        <a href="/2017/10/03/Flexibility-is-Key/#disqus_thread">Comments</a>
+      
+
+      <!-- add this to include post content in home -->
+      <!--<p>In this post we will talk about flexibility in the power system. why it is needed.</p>
+
+<p>Copy future flexibility. 
+a. Flexible demand
+b. Import
+c. Gasturbines (e.g. bio-fuelled)
+d. Use batteries or other storage
+e. Flexible electric vehicles or V2G
+f. Extra CHP capacity (Top-spool-technology)</p>
+-->
+
+    </div>
+    
+  
+    
+    <div class="post">
+      <h1 class="post-title">
+        <a href="/2017/09/27/Sigma-Pressure-Coordinates/">
+          Sigma Pressure Coordinates
+        </a>
+      </h1>
+
+      <!-- Add date and comment counts -->
+      <span class="post-date">27 Sep 2017
+        <br>
+        <!-- Add tags -->
+        
+        
+
+        <ul class="tag-box inline">
+         
+          
+          <li><a href="/tags/#meteorology">meteorology<span>1</span></a></li>
+         
+        </ul>
+      </span>
+
+      
+      <br>
+
+      
+
+      <!-- add this to include post content in home -->
+      <!--
+-->
+
+    </div>
+    
+  
+    
+    <div class="post">
+      <h1 class="post-title">
+        <a href="/2017/09/24/Climate-Change/">
+          Climate Change
+        </a>
+      </h1>
+
+      <!-- Add date and comment counts -->
+      <span class="post-date">24 Sep 2017
+        <br>
+        <!-- Add tags -->
+        
+        
+
+        <ul class="tag-box inline">
+         
+          
+          <li><a href="/tags/#climate-change">climate-change<span>5</span></a></li>
+         
+          
+          <li><a href="/tags/#why">why<span>9</span></a></li>
+         
+        </ul>
+      </span>
+
+      
+      <br>
+
+      
+
+      <!-- add this to include post content in home -->
+      <!--<p>In a previous blog <a href="/2017/09/16/Existential-Risk/">post</a>, I wrote about existential risks on different time scales. One existential risk I have been especially interested in for the last 5 year is climate change. Just as artificial general intelligence (AGI), climate change is an urgent existential risk and needs to be dealt with during this century. However, in contrast to the development of AGI, we know to a high degree of certainty both what is causing climate change and what we must do to limit its impact and avoid devastating consequences. But still, we ignorantly take life as we know it for granted and our politicians are reluctant to act at the required pace postulated by climate scientists to keep Earth in a safe operating space. Both of which are mind-boggling to me. In this blog post, I will review what is causing climate change and what its potential consequences are.</p>
+
+<h3 id="how-does-the-climate-change">How does the climate change?</h3>
+<p>Ever since the formation of the Earth, its climate has been changing dynamically due to factors such as biotic processes, variations in solar radiation received by the Earth, plate tectonics and volcanic eruptions, changes in albedo and greenhouse gas concentrations. In fact, the miraculously stable state we are used to, called the Holocene, has only been present for the last 10 000 years or so. To get here, it as been a bumpy ride as illustrated below.</p>
+
+<p><img src="/images/climate-change.jpg" alt="Climate Change" /></p>
+
+<p>The data comes from Greenland ice core samples. Temperatures can be derived from the concentrations of carbon dioxide, methane and other greenhouse gasses preserved in small bubbles trapped in the ice core. When I look at this figure, I get amazed how lucky we humans have been for the going into the Holocene. It is our Garden of Eden, the only place we know of that can sustain widespread modern life on Earth. It is also, most probably, the one reason that allowed us to become farmers in the first place.</p>
+
+<p>The mechanisms affecting climate change are called climate forcings and they can either be amplified or diminish by the Earth’s feedback system. For example, as the Earth gets hotter the polar ice caps are melting changing the color of the ground from white to dark. As dark colors absorb more light the Earth is getting even warmer and more ice melts. This is an example of a positive feedback loop where an initial push in the wrong direction can lead to an irreversible new state without ice coverage on the poles. In this new iceless state, the mean temperature would be significantly higher.</p>
+
+<p>The concept of planetary feedback is commonly referred to as resilience by climate scientists. A resilient ecosystem is capable of maintaining the same state in the presence of internal or external pressure. But continuous exposure to pressure might deteriorate the system, making it less robust. A hard enough push, or an slow but steady transition, might irreversibly change the state (or regime) of the system. For example, temperature rises could potentially turn the Earth into new state without any glaciers. Or if temperatures decreases for some reason, it could lead us into an ice age. The transition from one state to another is usually characterized by nonlinear tipping points where the system feedback changes from negative to positive. The implications of new state are very hard to make, we must expect the unexpected. Visually, you can imagine the different states as stable equilibrium points of a ball in a gravitational field as illustrated below. The deeper the cup holding the ball, the higher the systems resilience to pressures.</p>
+
+<p align="center">
+  <img width="350" height="350" src="/images/tipping-points.png" />
+</p>
+
+<p>Melting of ice caps is not the only positive feedback out there. Other examples are the release of carbon dioxide (and water vapor) from the oceans as they heat up and release of methane from thawing parmafrosts. Both contributing to a stronger greenhouse effect and thus global warming. Scientists have hypothesized that these effects may lead to a runaway greenhouse effect. A planet gone wild. Much like the greenhouse effect on Venus, with a surface temperature of more than 450 degree Celsius.</p>
+
+<h3 id="welcome-to-the-anthropocene">Welcome to the anthropocene</h3>
+<p>During the last 50 years, after 10 000 year of Holocene, the Earth has tipped into a new state, the Anthropocene. In this state it is we, the humans, how is the largest force acting on the planet. The population increase and the advances in our standards of life and technology are putting immense pressure on the planet. Human activity is causing deforestation, loss of biodiversity and increase of greenhouse gases in the atmosphere from energy transformation, transport and animal husbandry to mention a few. In the last 50 year, we have gone from a small world on a big planet to a big world on a small planet. We can no longer treat the planet as a vast, stable and self-regulating system with unlimited resources.</p>
+
+<p>The Holocene is our cherished home and we do not know what to expect in other states. Therefore, goal in the Antropocene and coming century is to keep the Earth in a Holocene-like state. Researchers at <a href="http://www.stockholmresilience.org/">Stockholm Resilience Center</a> mapped out the potential threats that potentially could push the planet out of the Holocene into the unkown. They called their framework <a href="https://en.wikipedia.org/wiki/Planetary_boundaries">planetary bounderies</a>, which is the safe operating space of the world. Later on, they revised the framework to also include the lower boundary needed to sustain the world population and fulfill the <a href="https://sustainabledevelopment.un.org/sdgs">sustainable development goals</a> (SDG) by the UN. This trade-off resulted in a doughnut-shape just and safe operating space for humanity shown below.</p>
+
+<p align="center">
+  <img width="550" height="500" src="/images/operating-space.jpeg" />
+</p>
+
+<p>This doughnut points towards a future that can provide for everyones needs while safeguarding the living world on which we all depend. Notice that climate change is only one of the planetary boundaries. Moreover, all boundaries are hyperconnected and affect each other. For example, climate change could lead to less availability of fresh water. The planetary boundaries framework is an holistic approach that gives the big picture of our safe operating space. We need to deal with all challenges threatening the development our modern society. At this point however, climate change is one of the most urgent boundaries (together with loss of biodiversity and overload of nitrogen and phosphorus). It must therefore be one of the first to be dealt with.</p>
+
+<h3 id="global-warming">Global warming</h3>
+<p>The mathematician Joseph Fourier showed already in 1824 that without the presence of the atmosphere, the Earth would be far colder. The Swedish physicist Svante Arrhenius, build upon this and discovered in 1896 that the amount of carbon dioxide in the atmosphere affects the mean temperature on Earth. This effect is caused by heat trapping gases letting visible light from the sun pass and absorbing (and remitting) low frequency infrared radiation emitted form the Earth.</p>
+
+<p>The anthropogenic climate change is called global warming. Today, the planet is heating at a rate unprecedented in all of recoded history. This is more evident than every before. An illustration of this is given below, showing the increase in measured temperatures.</p>
+
+<p align="center">
+  <img width="500" height="350" src="/images/temperature-anomaly.jpeg" />
+</p>
+
+<p>It can be seen from the record of global temperature that it is composed of fluctuations on several time scales. Therefore, it is not sure that a following year will be hotter than its preceding year. However, it can be said to a quite high degree of certainty that a following decade will be hotter than its preceding decade. Another great visualization of this can be found <a href="https://www.youtube.com/watch?v=K4Ra2HR27pQ">here</a>. We have been aware of this for a long time.</p>
+
+<p>Today, the link between greenhouse gases and increase in mean temperature is clear for the vast majority (more than 97 percent) of climate scientists. In the <a href="http://www.ipcc.ch/report/ar5/syr/">IPCC Fifth Assessment Report 2014</a>, it was concluded that:</p>
+
+<p class="message">
+  "Anthropogenic greenhouse gas emissions have increased since the pre-industrial era, driven
+  largely by economic and population growth, and are now higher than ever. This has led to atmospheric
+  concentrations of carbon dioxide, methane and nitrous oxide that are unprecedented in
+  at least the last 800,000 years. Their effects, together with those of other anthropogenic drivers,
+  have been detected throughout the climate system and are extremely likely to have been
+  the dominant cause of the observed warming since the mid-20th century."
+</p>
+
+<p>This link can be seen by plotting temperature and greenhouse gases such as carbon dioxide and methane next to each other as below. But one should be careful. Correlation does not infer causality. In reality, the relationship between the to variables is interlinked. Increasing temperature releases carbon dioxide from oceans into the atmosphere and increasing carbon dioxide in the atmosphere results in a stronger greenhouse effect.</p>
+
+<p align="center">
+  <img width="650" height="300" src="/images/temperature-co2.jpeg" />
+</p>
+
+<p>What is not clear is to which degree nonlinearities can come into play. Melting of ice caps is not the only positive feedback out there. Other examples are the release of carbon dioxide (and water vapor) from the oceans as they heat up and release of methane from thawing parmafrosts. Both contributing to a stronger greenhouse effect and thus global warming. Scientists have hypothesized that these effects may lead to a runaway greenhouse effect. A planet gone wild. Much like the greenhouse effect on Venus, with a surface temperature of more than 450 degree Celsius.</p>
+
+<h3 id="what-are-the-impacts">What are the impacts?</h3>
+<p>The impacts of climate change will differ depending on the geographical region. Some areas will get warmer, some hotter. Some areas will get dryer some more humid. But overall, it is clear that the planet is getting warmer and dryer.</p>
+
+<p>Apart from increased mean temperature and expansion of deserts into the subtropics, some anticipated changes are melting of ice caps, raising sea level and more precipitation and extreme weather. Even if it is very hard to attribute a specific extreme weather event to global warming, they will become more common from a statistical viewpoint. This is because of the higher energy content stored in the oceans and the increased water evaporation caused by higher temperatures.</p>
+
+<p>Because of the high degree of inertia of the climate system (atmosphere, oceans and geosphere), it is likely that the coming effects of global warming will persist for many decades and centuries to come. Picture it like one of those big cruisers cutting through the water at full blast and suddenly turning of the engines. The inertia of the cruiser would keep it on course for a good while. Exactly the same is true for the climate system. Many experts think that, when accounting for this, we have already crossed the 2 degree Celsius goal agreed upon by the United Nations.</p>
+
+<p>But it is still possible to limit the damage done by global warming. The first place to start is by limiting the root cause reduce the anthropogenic greenhouse gas emissions. These emissions have stopped to increase. However, in order to have a reasonable chance to limit the global warming to 2 degrees, we must bend the curve and go towards zero emissions by the end of the century.</p>
+
+<h3 id="a-worthy-challenge">A worthy challenge</h3>
+<p>The climate crisis is a fact. Our generation can thank science for informing us about how we are undermining the stability and ability of planet Earth to support our modern society. There is no time for inability to take action, we must act now and decisively. We can buy green electricity, eat less meat and recycle waste. But we must also try to affect the decision makers. We can, if we want, turn the climate crisis into an opportunity, by appropriate regulation we can unleash innovation. We need to internalize, the greenhouse gas externality by putting a tax an carbon. I believe in markets, but they need to regulated to account for social and environment aspects.</p>
+
+<p>I’d like to finish this blog post by a quote from Al Gore:</p>
+
+<p class="message">
+  "How many generations in all of human history have had the opportunity to rise to a challenge that is worthy of our best efforts? A challenge that can pull from us more than we knew we could do?"
+</p>
+
+<h3 id="references">References</h3>
+<ul>
+  <li>Climate Central, <a href="http://www.climatecentral.org/">www.climatecentral.org</a></li>
+  <li>IPCC, <a href="http://www.ipcc.ch/">www.ipcc.ch</a></li>
+  <li>Johan Rockström and Mattias Klum, Big World Small Planet</li>
+  <li>Johan Rockström, <a href="https://www.ted.com/talks/johan_rockstrom_let_the_environment_guide_our_development#t-324191">TED -Let the environment guide our development</a></li>
+  <li>NASA, <a href="https://climate.nasa.gov/">Global Climate Change</a></li>
+  <li>Ted Halstead, <a href="https://www.ted.com/talks/ted_halstead_a_climate_solution_where_all_sides_can_win">TED - A climate solution where all sides can win</a></li>
+  <li>UN, <a href="https://sustainabledevelopment.un.org/?menu=1300">Sustainable Development Goals</a></li>
+  <li>Wikipedia, <a href="https://en.wikipedia.org/wiki/Global_warming">Global warming</a></li>
+  <li>Wikipedia, <a href="https://en.wikipedia.org/wiki/Climate_change">Climate Change</a></li>
+</ul>
+-->
+
+    </div>
+    
+  
+    
+    <div class="post">
+      <h1 class="post-title">
+        <a href="/2017/09/24/Climate-Change/">
+          Climate Change
+        </a>
+      </h1>
+
+      <!-- Add date and comment counts -->
+      <span class="post-date">24 Sep 2017
+        <br>
+        <!-- Add tags -->
+        
+        
+
+        <ul class="tag-box inline">
+         
+          
+          <li><a href="/tags/#climate-change">climate-change<span>5</span></a></li>
+         
+          
+          <li><a href="/tags/#why">why<span>9</span></a></li>
+         
+        </ul>
+      </span>
+
+      Climate change is one of the largest existential risks in this century. In this post I explain how the climate is changing and what might be its implications.
+      <br>
+
+      
+        <a href="/2017/09/24/Climate-Change/#disqus_thread">Comments</a>
+      
+
+      <!-- add this to include post content in home -->
+      <!--<p>In a previous blog <a href="/2017/09/16/Existential-Risk/">post</a>, I wrote about existential risks on different time scales. One existential risk I have been especially interested in for the last 5 year is climate change. Just as artificial general intelligence (AGI), climate change is an urgent existential risk and needs to be dealt with during this century. However, in contrast to the development of AGI, we know to a high degree of certainty both what is causing climate change and what we must do to limit its impact and avoid devastating consequences. But still, we ignorantly take life as we know it for granted and our politicians are reluctant to act at the required pace postulated by climate scientists to keep Earth in a safe operating space. Both of which are mind-boggling to me. In this blog post, I will review what is causing climate change and what its potential consequences are.</p>
+
+<h3 id="how-does-the-climate-change">How does the climate change?</h3>
+<p>Ever since the formation of the Earth, its climate has been changing dynamically due to factors such as biotic processes, variations in solar radiation received by the Earth, plate tectonics and volcanic eruptions, changes in albedo and greenhouse gas concentrations. In fact, the miraculously stable state we are used to, called the Holocene, has only been present for the last 12 000 years or so. To get here, it has been a bumpy ride as illustrated below.</p>
+
+<p><img src="/images/climate-change.jpg" alt="Climate Change" /></p>
+
+<p>The data comes from Greenland ice core samples. Temperatures can be derived from the concentrations of carbon dioxide, methane and other greenhouse gasses preserved in small bubbles trapped in the ice core. When I look at this figure, I get amazed how lucky we humans have been for the going into the Holocene. It is our Garden of Eden, the only place we know of that can sustain widespread modern life on Earth. It is also, most probably, the one reason that allowed us to develop agriculture and substantially civilizations in the first place.</p>
+
+<p>The mechanisms affecting climate change are called climate forcings and they can either be amplified or diminish by the Earth’s feedback system. For example, as the Earth gets hotter the polar ice caps are melting changing the colour of the ground from white to dark. As dark colours absorb more light the Earth is getting even warmer and more ice melts. This is an example of a positive feedback loop where an initial push in the wrong direction can lead to an irreversible new state without ice coverage on the poles. In this new iceless state, the mean temperature would be significantly higher.</p>
+
+<p>The concept of planetary feedback is commonly referred to as resilience by climate scientists. A resilient ecosystem is capable of maintaining the same state in the presence of internal or external pressure. But continuous exposure to pressure might deteriorate the system, making it less robust. A hard enough push, or a slow but steady transition, might irreversibly change the state (or regime) of the system. For example, temperature rises could potentially turn the Earth into new state without any glaciers. Or if temperatures decreases for some reason, it could lead us into an ice age. The transition from one state to another is usually characterized by nonlinear tipping points where the system feedback changes from negative to positive. The implications of new state are very hard to make, we must expect the unexpected. Visually, you can imagine the different states as stable equilibrium points of a ball in a gravitational field as illustrated below. The deeper the cup holding the ball, the higher the systems resilience to pressures.</p>
+
+<p align="center">
+  <img width="350" height="350" src="/images/tipping-points.png" />
+</p>
+
+<h3 id="global-warming">Global warming</h3>
+<p>The mathematician Joseph Fourier showed already in 1824 that without the presence of the atmosphere, the Earth would be far colder. The Swedish physicist Svante Arrhenius, build upon this and discovered in 1896 that the amount of carbon dioxide in the atmosphere affects the mean temperature on Earth. This effect is caused by heat trapping gases letting visible light from the sun pass and absorbing (and remitting) low frequency infrared radiation emitted from the Earth.</p>
+
+<p>The anthropogenic climate change is called global warming. Today, the planet is heating at a rate unprecedented in all of recoded history. This is more evident than ever before. An illustration of this is given below, showing the increase in measured temperatures.</p>
+
+<p align="center">
+  <img width="500" height="350" src="/images/temperature-anomaly.jpeg" />
+</p>
+
+<p>It can be seen from the record of global temperature that it is composed of fluctuations on several time scales. Therefore, it is not sure that a following year will be hotter than its preceding year. However, it can be said to a quite high degree of certainty that a following decade will be hotter than its preceding decade. Another great visualization of this can be found <a href="https://www.youtube.com/watch?v=K4Ra2HR27pQ">here</a>. We have been aware of this for a long time.</p>
+
+<p>Today, the link between greenhouse gases and increase in mean temperature is clear for the vast majority (more than 97 percent) of climate scientists. In the <a href="http://www.ipcc.ch/report/ar5/syr/">IPCC Fifth Assessment Report 2014</a>, it was concluded that:</p>
+
+<p class="message">
+  "Anthropogenic greenhouse gas emissions have increased since the pre-industrial era, driven
+  largely by economic and population growth, and are now higher than ever. This has led to atmospheric
+  concentrations of carbon dioxide, methane and nitrous oxide that are unprecedented in
+  at least the last 800,000 years. Their effects, together with those of other anthropogenic drivers,
+  have been detected throughout the climate system and are extremely likely to have been
+  the dominant cause of the observed warming since the mid-20th century."
+</p>
+
+<p>This link can be seen by plotting temperature and greenhouse gases such as carbon dioxide and methane next to each other as in the figure below. But one should be careful. Correlation does not infer causality. In reality, the relationship between the to variables is interlinked. Increasing temperature releases carbon dioxide from oceans into the atmosphere and increasing carbon dioxide in the atmosphere results in a stronger greenhouse effect.</p>
+
+<p align="center">
+  <img width="650" height="300" src="/images/temperature-co2.jpeg" />
+</p>
+
+<p>From the graph above, it can be seen that the Earth has been going in and out of glacial period with milder interglacial periods in-between. This supports the hypothesis that the Earth system is located in one of a few discrete states. The different between an ice age and an interglacial state is on average only 5 °C.</p>
+
+<p align="center">
+  <img width="400" height="400" src="/images/planet-states.jpeg" />
+</p>
+
+<p>What is not clear is to which degree nonlinearities can come into play. Melting of ice caps is not the only positive feedback out there. Other examples are the release of carbon dioxide (and water vapour) from the oceans as they heat up and release of methane from thawing parmafrosts. Both contributing to a stronger greenhouse effect and thus global warming. Scientists have hypothesized that these effects may lead to a runaway greenhouse effect. A planet gone wild. Much like the greenhouse effect on Venus, with a surface temperature of more than 450 °C.</p>
+
+<h3 id="what-are-the-impacts">What are the impacts?</h3>
+<p>The impacts of climate change will differ depending on the geographical region. Some areas will get warmer, other will get colder. Some areas will get dryer, other more humid. But overall, it is clear that the planet is getting warmer and dryer.</p>
+
+<p>Apart from increased mean temperature and expansion of deserts into the subtropics, some anticipated changes are melting of ice caps, raising sea level and more precipitation and extreme weather. Even if it is very hard to attribute a specific extreme weather event to global warming, they will become more common from a statistical viewpoint. This is because of the higher energy content stored in the oceans and the increased water evaporation caused by higher temperatures.</p>
+
+<p>Because of the high degree of inertia of the climate system (atmosphere, oceans and geosphere), it is likely that the coming effects of global warming will persist for many decades and centuries to come. Picture it like one of those big cruisers cutting through the water at full blast and suddenly turning of the engines. The inertia of the cruiser would keep it on course for a good while. Exactly the same is true for the climate system. Many experts think that, when accounting for this, we have already crossed the 2 °C goal agreed upon by the Paris Agreement.</p>
+
+<p>But it is still possible to limit the damage done by global warming. The first place to start is by limiting the root cause, to reduce the anthropogenic greenhouse gas emissions. During the last years, the greenhouse gas emissions have seemed to stopped increasing. However, in order to have a reasonable chance to limit the global warming to 2 °C, we must bend the curve by 2020 and go towards zero emissions by 2050.</p>
+
+<h3 id="a-worthy-challenge">A worthy challenge</h3>
+<p>The climate crisis is a fact. Our generation can thank science for informing us about how we are undermining the stability and ability of planet Earth to support our modern society. There is no time for inability to take action, we must act now and decisively. We can buy green electricity, eat less meat and recycle waste. But we must also try to affect the decision makers. We can, if we want, turn the climate crisis into an opportunity, by appropriate regulation we can unleash innovation and use exponential growth in the right direction. We need to internalize, the greenhouse gas externality by putting a tax on carbon. I believe in markets, but they need to regulated to account for social and environment aspects.</p>
+
+<p>I’d like to finish this blog post with a quote by Al Gore:</p>
+
+<p class="message">
+  "How many generations in all of human history have had the opportunity to rise to a challenge that is worthy of our best efforts? A challenge that can pull from us more than we knew we could do. We ought to approach with a sense of profound joy and gratitude. That we are the generation about which, a thousands years from now, philharmonic orchestras and poets and singers will celebrate by saying: they where the ones, that found it within themselves to solve this crisis and lay the basis for a bright and optimistic human future"
+</p>
+
+<h3 id="references">References</h3>
+<ul>
+  <li>Al Gore, <a href="https://www.ted.com/talks/al_gore_s_new_thinking_on_the_climate_crisis">TED - New thinking on the climate crisis</a></li>
+  <li>Climate Central, <a href="http://www.climatecentral.org/">www.climatecentral.org</a></li>
+  <li>IPCC, <a href="http://www.ipcc.ch/">www.ipcc.ch</a></li>
+  <li>Johan Rockström and Mattias Klum, Big World Small Planet</li>
+  <li>Johan Rockström, <a href="https://www.ted.com/talks/johan_rockstrom_let_the_environment_guide_our_development#t-324191">TED - Let the environment guide our development</a></li>
+  <li>NASA, <a href="https://climate.nasa.gov/">Global Climate Change</a></li>
+  <li>Ted Halstead, <a href="https://www.ted.com/talks/ted_halstead_a_climate_solution_where_all_sides_can_win">TED - A climate solution where all sides can win</a></li>
+  <li>UN, <a href="https://sustainabledevelopment.un.org/?menu=1300">Sustainable Development Goals</a></li>
+  <li>Wikipedia, <a href="https://en.wikipedia.org/wiki/Climate_change">Climate Change</a></li>
+  <li>Wikipedia, <a href="https://en.wikipedia.org/wiki/Global_warming">Global warming</a></li>
+  <li>Wikipedia, <a href="https://en.wikipedia.org/wiki/Tipping_point_(climatology)">Tipping point</a></li>
+</ul>
+-->
+
+    </div>
+    
+  
+    
+    <div class="post">
+      <h1 class="post-title">
+        <a href="/2017/09/16/Existential-Risk/">
+          Existential Risk
+        </a>
+      </h1>
+
+      <!-- Add date and comment counts -->
+      <span class="post-date">16 Sep 2017
+        <br>
+        <!-- Add tags -->
+        
+        
+
+        <ul class="tag-box inline">
+         
+          
+          <li><a href="/tags/#why">why<span>9</span></a></li>
+         
+        </ul>
+      </span>
+
+      The human species is currently the most successful species of Earth. But in order not follow the same fate as the dinosaurs, we need to be aware of and be precautious about possible existential risks.
+      <br>
+
+      
+        <a href="/2017/09/16/Existential-Risk/#disqus_thread">Comments</a>
+      
+
+      <!-- add this to include post content in home -->
+      <!--<p>Imagine being on a spaceship travelling through the hostile space at 30 km/s. Outside, it is freezing cold. The hull of the spaceship is keeping you warm and protecting you from deadly ultraviolet radiation. On the spaceship there is a limited supply of water, food, fuel and other necessities. A responsible captain would do everything in her power keep the passengers safe. She would struggle to avoid collision with asteroids, onboard explosions, overheating of the spaceship, degradation of the protecting hull and depletion of the limited resources. The name of the spaceship is planet earth. Its protecting hull is the atmosphere, ozone layer and its magnetic field.</p>
+
+<p>To me, this analogy makes it clear how fragile and insignificant our life on earth is. This fact is excellently captured by the speech <a href="https://www.youtube.com/watch?v=kmP4Xzt0rN4">“Pale Blue Dot”</a> by Carl Sagan. Our life as a species is threatened by several existential risk. To illustrate this, Max Tegmark made a graphic showing how life as we know it could be wiped out.</p>
+
+<p><img src="/images/upcoming-existential-risks.png" alt="Existential Risks" /></p>
+
+<p>On the big time scales, we are concerned with astronomical and geological threats. These are for example the death of the sun, earth getting hit by asteroids and supervolcanoes causing volcanic winters. These are threats that are non anthropogenic and hopefully we will be able to handle them with the technology available when the time comes. On the small time scales, the threats are post by humanity itself. They range from human activity causing climate change and loss of biodiversity to carelessly dealing with powerful future technology. In the light of these threats, I am not worried about getting hit by an asteroid.</p>
+
+<p>An existential catastrophe is something that, by definition, never has happened in all of human history. Therefore, we can not us our old technique to learn from our mistakes - by then it is too late. In stead, we must develop technological foresight if we want to survive the century. Even though an event is unlikely, it is worth safeguarding against it if its consequences are devastating. This is referred to as the <a href="https://en.wikipedia.org/wiki/Precautionary_principle">precautionary principle</a>. Elon Musk applies this principle to climate change by calling the emission of greenhouse gases into the atmosphere <a href="https://www.youtube.com/watch?v=znukFtaWPAw">“The Dumbest Experiment in History”</a>. The same principle should be applied for powerful future technology such as general artificial intelligence (AGI), synthetic biology and molecular nanotechnology.</p>
+
+<p>In a wider perspective, an existential risk is defined by Nick Boström, a philosopher working in the field, as:</p>
+
+<p class="message">
+"One that threatens the premature extinction of Earth-originating intelligent life or the permanent and drastic destruction of its potential for desirable future development."
+</p>
+
+<p>The core is that an existential risk are those risks that threaten the entire future of humanity - not just the present generation, but all future generations. But Boström’s scope of existential risk is a bit bigger, it also incorporates situations such as permanent stagnation, flawed realization and subsequent ruination. Basically, he argues that not fulfilling the highest potential of technological development constitutes an existential risk. I am not sure I agree with him. I think it would be alright for humanity to follow a path of where the full technological potential is not fulfilled if that state could be maintained and protected for human extinction. What do you think?</p>
+
+<h2 id="references">References</h2>
+<ul>
+  <li>Nick Boström, Existential Risk Prevention as Global
+Priority</li>
+  <li><a href="http://cser.org/">Centre for the Study of Existential Risk</a></li>
+  <li><a href="http://www.existential-risk.org/">existential-risk.org</a></li>
+  <li>R. Buckmister Fuller, Operating Manual for Spaceship Earth</li>
+  <li>Max Tegmark, Our Mathematical Universe: My Quest for the Ultimate Nature of Reality</li>
+  <li>Wikipedia, <a href="https://en.wikipedia.org/wiki/Global_catastrophic_risk">Global catastrophic risk</a></li>
+</ul>
+-->
+
+    </div>
+    
+  
+</div>
+
+<div class="pagination">
+  
+    <span class="pagination-item older">Older</span>
+  
+  
+    
+      <a class="pagination-item newer" href="/">Newer</a>
+    
+  
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <script id="dsq-count-scr" src="//el-nino.disqus.com/count.js" async></script>
+    
+  </body>
+</html>
