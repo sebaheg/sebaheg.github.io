@@ -4,6 +4,7 @@ title: Exploring Regional Wind Power Data in Sweden
 tags: [data, python, renewable-energy, time-series, visualization]
 description: The Swedish wind power industry has been growing rapidly in the last decade. Raw data regarding power production has been public since late 2014. However, there is not much visualization and exploration of the data. The goal of this blog post is to fill this hole and turn the raw data into insights and understanding.
 plotly: true
+comments: true
 live: true
 ---
 
