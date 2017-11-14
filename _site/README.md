@@ -4,10 +4,13 @@ In this blog, I am writing about how algorithms can help in the fight against cl
 ## Planned Blog Posts
 As always, I have way more ideas than I have time to realise. These are the blog posts I have planned for at the moment:
 
+1. Singularity Unversity
+https://www.youtube.com/watch?v=fwSkQa1tNmE&feature=youtu.be
 1. Big World, Small Planet
 1. The Bill Gates Equation
 1. The Rise of Renewable Energy (Reference IEA report) and exponential growth. It is possible to do something about climate change?
 here is about the optimism in climate change (al gore) https://www.ted.com/talks/al_gore_the_case_for_optimism_on_climate_change
+1. Georaphical smoothing of wind power. Use the AMEO dataset to make an interactive visualization of how the smoothing effect works. Use fourier analysis to show how the frequency content of the signal is shifting towards lower frequency as the signal is aggregated with more and more wind farms.
 1. The Energy Transformation (structural change of energy system)
 1. The Grid Stability Problem (TSO - SVK)
 1. Syntetic inertia wind turbines Canada
@@ -25,6 +28,7 @@ here is about the optimism in climate change (al gore) https://www.ted.com/talks
 1. Intraday trading
 1. Meteorology - wind profile
 1. knapsack problem
+1. Mixture density networks and probability. Keras, edward, tensorflow...
 1. Climate models and WRF https://www.ted.com/talks/gavin_schmidt_the_emergent_patterns_of_climate_change#t-691522
 1. autocorrelation
 1. multiple weather
