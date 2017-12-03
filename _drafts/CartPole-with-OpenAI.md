@@ -16,7 +16,7 @@ https://keon.io/deep-q-learning/
 Deep Q-learning
 https://pythonprogramming.net/openai-cartpole-neural-network-example-machine-learning-tutorial/
 https://www.pinchofintelligence.com/getting-started-openai-gym/
-
+https://www.analyticsvidhya.com/blog/2017/01/introduction-to-reinforcement-learning-implementation/
 Here we talk more about Q-learning and the cartpole problem.
 
 Reinforcement learning is a type of problem
@@ -24,6 +24,8 @@ Reinforcement learning is a type of problem
 OpenAI provides several different such problems (or environments) that can be accessed through a user-friendly API. in order to help people develop their RL algorithms.
 
 https://gym.openai.com/
+
+Idea: make a OpenAI gym for reinforcement learning for energy.
 RL is a problem not a solution. It is a markov
 
 Cartpole is a classical Reinforcement learning problem.
@@ -37,6 +39,11 @@ The core of Q-Learning is to estimate a value for every possible pare of a state
 Basically, a (S, A)-tuple’s new q-value depends on its old q-value, the immediate reward received for the action and the maximum q-value achievable in the following state.
 
  By repeatedly walking through all nodes and transistions, the agent can update any (S, A)-pairs q-value, while the results of good and bad actions are slowly “backpropagated” from terminal nodes to early nodes. The agent ends up with a (usually multidimensional) table mapping states and actions to q-values, so that given any state, the best action can be picked by choosing the highest respective q-value.
+
+### OpenAI Gym
+[OpenAI](https://en.wikipedia.org/wiki/OpenAI#Universe)
+
+Can use OpenAI universe to make your own environments in the end.
 
 ### Cartpole problem
 A pole is attached by an un-actuated joint to a cart, which moves along a frictionless track. The pendulum starts upright, and the goal is to prevent it from falling over by increasing and reducing the cart's velocity.
@@ -173,6 +180,147 @@ Actually the main challenge was to convert the continuous, 4-dimensional input s
 ### Hyperparameters
 alpha: regularization to make updates less radical, which, in the first place, prevents from errors caused by noise
 epsilon: exploitation and exploration. This should prevent the algorithm from getting stuck in local minima. pick a random action with probability epsilon
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OpenAI provides several different such problems (or environments) that can be accessed through a user-friendly API. in order to help people develop their RL algorithms.
+
+https://gym.openai.com/
+RL is a problem not a solution. It is a markov
+
+Cartpole is a classical Reinforcement learning problem.
+start with random actions and then learn how to master the game without being told how the game even works.
+deep-q learning is a model-free approach as apposed to control theory/automatic control
+
+In machine learning terms, CartPole is basically a binary classification problem. There are four features as inputs, which include the cart position, its velocity, the pole’s angle to the cart and its derivative (i.e. how fast the pole is “falling”).
+
+The core of Q-Learning is to estimate a value for every possible pare of a state (s) and an action (a) by getting rewarded.
+
+Basically, a (S, A)-tuple’s new q-value depends on its old q-value, the immediate reward received for the action and the maximum q-value achievable in the following state.
+
+ By repeatedly walking through all nodes and transistions, the agent can update any (S, A)-pairs q-value, while the results of good and bad actions are slowly “backpropagated” from terminal nodes to early nodes. The agent ends up with a (usually multidimensional) table mapping states and actions to q-values, so that given any state, the best action can be picked by choosing the highest respective q-value.
+
+### Cartpole problem
+For CartPole-v0 one of the actions applies force to the left, and one of them applies force to the right. (Can you figure out which is which?) So we affect force not speed directly!!
+
+This is essentially the classic inverted pendulum problem which you could find in a typical undergraduate control course. However, instead of applying control theories, the goal here is to solve it using controlled trial-and-error, also known as reinforcement learning. COPY
+
+The Cart-Pole world consists of a cart that moves along the horizontal axis and a pole that is anchored on the cart. At every time step, you can observe its position (x), velocity (x_dot), angle (theta), and angular velocity (theta_dot). These are the observable states of this world. At any state, the cart only has two possible actions: move to the left or move to the right.
+In other words, the state-space of the Cart-Pole has four dimensions of continuous values and the action-space has one dimension of two discrete values.
+
+
+<table>
+  <thead>
+    <tr>
+      <th>State variable</th>
+      <th>Lower bound</th>
+      <th>Upper bound</th>
+    </tr>
+  </thead>
+  <tr>
+    <tr>
+      <th align="center">\( \theta \)</th>
+      <td>21</td>
+      <td>23</td>
+    </tr>
+  </tr>
+  <tbody>
+    <tr>
+      <th align="center">\(\dot \theta \)</th>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th align="center">\( x \)</th>
+      <td>4</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th align="center">\( \dot x \)</th>
+      <th align="center">10</th>
+      <th align="center">100</th>
+    </tr>
+  </tbody>
+</table>
+
+### Random actions
+
+<p align="center">
+  <video controls="controls">
+    <source type="video/mp4" src="/videos/im.mp4"></source>
+    <p>Your browser does not support the video element.</p>
+  </video>
+</p>
+
+
+
+
+
+
+
+### Discretizing the feature space
+One major limitation of my classical Q-Learning approach was that the number of possible states had to be reduced from basically infinity (due to the observations’ continuous nature) to, in my case
+
+Good reference to get started:
+http://mnemstudio.org/path-finding-q-learning-tutorial.htm
+
+Accordingly, with DQN we don’t need discrete buckets anymore, but are able to directly use the raw observations.
+
+Having fewer optimal polices to find means faster training. However, discretizing the state-space too coarsely might prevent convergence as important information might be discretized away.
+
+The input is a state-vector (or a batch of such) - consisting of four features in this case (which corresponds to four input neurons)The output is a vector of Q-values, one for each possible action - two in our case (corresponding to two output neurons).
+
+
+
+### Training
+experience tuples (old_state, performed_action, received_reward, new_state).
+experience replay, go throught the game several times
+At fixed intervals (e.g. after each training episode, but NOT after each step), batches are sampled from memory and used as training data for the network. Consequently, the network (hopefully) improves every episode and predicts more precise Q-values for state-action pairs.
+
+- try to increase the number of hidden units in the second hidden layer.
+- Make mini-batch training instead of online training
+- larger replay memory memory size to 100,000.
+- Does it make sense to set gamma = 1?
+- different weight decays
+- tune the hyperparameters alpha, and so on.
+logarithmic decay
+
+The purpose of the training is to enhance the 'brain' of our agent, represented by matrix Q.  More training results in a more optimized matrix Q
+
+\begin{equation}
+\varepsilon() = \max(0.01, \min(\varepsilon, 1-\log(t+1) \cdot decay))
+\end{equation}
+
+$$ \max p $$
+$$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$$
+
+
+
+Actually the main challenge was to convert the continuous, 4-dimensional input space to a discrete space with a finite and preferably small, yet expressive, number of discrete states. The less states we have, the smaller the Q-table will be, the less steps the agent will need to properly learn its values. However, too few states might not hold enough information to properly represent the environment.
+
+
+### Hyperparameters
+alpha: regularization to make updates less radical, which, in the first place, prevents from errors caused by noise
+epsilon: exploitation and exploration. This should prevent the algorithm from getting stuck in local minima. pick a random action with probability epsilon
+
+### References
+OpenAI Gym, [gym.openai.com/docs/](https://gym.openai.com/docs/)
+https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff
+https://medium.com/@tuzzer/cart-pole-balancing-with-q-learning-b54c6068d947
 
 ### References
 OpenAI Gym, [gym.openai.com/docs/](https://gym.openai.com/docs/)
