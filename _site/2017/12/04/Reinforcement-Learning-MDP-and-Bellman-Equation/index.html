@@ -97,14 +97,6 @@
     
       
         
-      
-    
-      
-        
-      
-    
-      
-        
           <a class="sidebar-nav-item" href="/tags/">
             <i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags
           </a>
@@ -157,7 +149,7 @@
     <ul class="tag-box inline">
      
       
-      <li><a href="/tags/#machine-learning">machine-learning<span>6</span></a></li>
+      <li><a href="/tags/#machine-learning">machine-learning<span>2</span></a></li>
      
     </ul>
   </span>
@@ -168,7 +160,7 @@
 <p>In a previous post, I gave an introduction to reinforcement learning. In the this post I will try to summaries the theory of reinforcement learning. We will look into how the problem can be framed mathematically and develop a criterion for when we have reached optimality. Since reinforcement learning is goal oriented, we do not know what is optimal behaviour beforehand. Therefore, this criterion for optimality provides indispensable guidance in helping the agent to learn.</p>
 
 <h2 id="markov-decision-problem">Markov decision problem</h2>
-<p>In order to formalize the reinforcement learning problem we need to put it into some mathematics. The <a href="https://en.wikipedia.org/wiki/Markov_decision_process">Markov
+<p>In order to formalise the reinforcement learning problem we need to put it into some mathematics. The <a href="https://en.wikipedia.org/wiki/Markov_decision_process">Markov
 decision problem</a> (MDP) framework can be used to achieve this. The MDP relies on the Markov property, which states that:</p>
 
 <p class="message">
@@ -181,36 +173,23 @@ decision problem</a> (MDP) framework can be used to achieve this. The MDP relies
   <li>States: \( s \in \mathbb{S} \)</li>
   <li>Observations: \( y \in \mathbb{Y} \)</li>
   <li>Actions: \( a \in \mathbb{A} \)</li>
-  <li>Reward: \( r: \mathbb{S} \times \mathbb{A} \to \mathbb{R} \)</li>
-  <li>State transition: \( T: \mathbb{S} \times \mathbb{A} \to \mathbb{S} \)</li>
-  <li>Observable state transition: \( O: \mathbb{S} \times \mathbb{A} \to \mathbb{Y} \)</li>
+  <li>Reward: \( R(s,a): \mathbb{S} \times \mathbb{A} \to \mathbb{R} \)</li>
+  <li>State transition: \( T(s’ \mid s,a): \mathbb{S} \times \mathbb{A} \to [0,1] \)</li>
 </ul>
-
-<p><strong>why do I need state and action to observe?</strong></p>
 
 <p>Using this notation we can express a process with the Markov property as</p>
 
-<p align="center">
-$$
-\begin{align}
-\mathbb{P} [s_{t+1} | s_t, a_t, s_{t-1}, a_{t-1}, ...] &amp;= \mathbb{P} [s_{t+1} | s_t, a_t], \\
-\mathbb{P} [y_t | s_t, a_t, s_{t-1}, a_{t-1}, ...] &amp;= \mathbb{P} [y_t | s_t, a_t]
-\end{align}
-$$
-</p>
+<p>\begin{equation}
+\mathbb{P} (s_{t+1} \mid s_t, a_t, s_{t-1}, a_{t-1}, …) = \mathbb{P} (s_{t+1} \mid s_t, a_t),
+\end{equation}</p>
 
-<p>in general and as</p>
+<p>meaning our state transition \( T(s’ \mid s,a) \) only need to depend on the current state. In the case of a deterministic Markov process we can define the state transition function \( f_T(s,a): \mathbb{S} \times \mathbb{A} \to \mathbb{S} \) as</p>
 
-<p align="center">
-$$
-\begin{align}
-s_{t+1} &amp;= T(s_t,a_t,s_{t-1},a_{t-1},...) = T(s_t,a_t), \\
-y_t &amp;= O(s_t,a_t,s_{t-1},a_{t-1},...) = O(s_t,a_t)
-\end{align}
-$$
-</p>
+<p>\begin{equation}
+s_{t+1} = f_T(s_t,a_t,s_{t-1},a_{t-1},…) = f_T(s_t,a_t).
+\end{equation}</p>
 
-<p>for deterministic processes. If we have perfect state observation of the process, then \( y_t = s_t \). Futhermore, the process can be said to be stationary if the probability \( \mathbb{P} \) (or the functions \( f \) and \( g \) in the deterministic case) does not change with time.</p>
+<p>In case we do have perfect state observation of the process then \( y_t = s_t \), otherwise \( \mathbb{P} (y_t \mid s_t) \) in the stochastic case. In the deterministic case we have \( y_t = f_O(s_t) \), where \( f_O(s): \mathbb{S} \to \mathbb{Y} \) is the observation function. Futhermore, the process can be said to be stationary if the probability \( \mathbb{P} \) (or the functions \( f \) in the deterministic case) does not change with time.</p>
 
 <h3 id="state">State</h3>
 <p>The Markov state is a sufficient statistics of the future. A Markov state can always be found, since one can always include the complete history of the past in the current state. However, it is preferable to keep the state representation as compact as possible without losing the Markov property. Therefore, it is the up designer of the algorithm to choose appropriate information of the past to include in the state representation.</p>
@@ -229,10 +208,10 @@ $$
 <p>In order for agents to learn optimal operating strategies in an environment, the designer has to define what the optimal is. This means specifying a objective function that the agent can use in the optimisation. The most commonly used objective (or target) function to maximise is the infinite-horizon discounted reward. This model takes long-run reward into account but future rewards are geometrically discounted using a discounting factor \( \gamma \in [0,1] \). The cumulative discounted reward is calculated as:</p>
 
 <p>\begin{equation}
-G_t = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + … + \gamma^T R_{t+T+1} = \sum_{k=0}^{T} \gamma^k R_{t+k+1}.
+G_t = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + … + \gamma^T R_{t+N+1} = \sum_{k=0}^{N} \gamma^k R_{t+k+1},
 \end{equation}</p>
 
-<p>The task to be performed can either be divided into distinct episodes (Episodical) for which \( T \in \mathbb{N} \) or continuing for which \( T \to \infty \). Setting \( \gamma = 0 \) and \( \gamma \) = 1 result in a myopic and far-sighted estimate respectively. The use of a discounting factor \( \gamma \) can be justified in several ways:</p>
+<p>where \( R_t = R(s_t,a_t) \). The task to be performed can either be divided into distinct episodes (Episodical) for which \( N \in \mathbb{N} \) or continuing for which \( N \to \infty \). Setting \( \gamma = 0 \) and \( \gamma \) = 1 result in a myopic and far-sighted estimate respectively. The use of a discounting factor \( \gamma \) can be justified in several ways:</p>
 
 <ul>
   <li>future reward is more uncertain and should therefore be discounted;</li>
@@ -250,19 +229,19 @@ G_t = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + … + \gamma^T R_{t+T+1} = \
 <p>where \( s’ \) is the next state after taking action \( a \) in state \( s \). For an episode of length \( N \) we will accumulate a corresponding number of such experience tuples.</p>
 
 <h2 id="finding-a-policy">Finding a policy</h2>
-<p>The policy is a set of implicit or explicit rules that signifies how the agent should behave in different circumstances. The policy can be represented as the probability of taking an action \( a \) given the state \( s \) according to</p>
+<p>The policy is a set of implicit or explicit rules that signifies how the agent should behave in different circumstances. The policy \( \pi(a|s): \mathbb{S} \times \mathbb{A} \to [0,1] \) can be represented as the probability of taking an action \( a \) given the state \( s \) according to</p>
 
 <p>\begin{equation}
-\pi(a|s) = \mathbb{P} \big[ A_t=a | S_t=s \big].
+\pi(a|s) = \mathbb{P} \big( A_t=a | S_t=s \big).
 \end{equation}</p>
 
-<p>If we knew the dynamics of the environment, meaning we have a perfect model of the state transition function \( T \) and the state-action space is not too large then we could apply techniques such as dynamic programming to find optimal policy. In very large state-action spaces, where it is infeasible to use exhaustive search algorithms, Monte Carlo tree search are preferred. However, we do not have a perfect model of the MDP environments and need to explore techniques for determining the optimal policy anyway. This might be a hard task, but there are some good news. It can be shown for the infinite-horizon discounted reward that there exists an optimal deterministic stationary policy \( \pi^{\ast} \) given that the environment also is stationary.</p>
+<p>If we knew the dynamics of the environment, meaning we have a perfect model of the state transition function \( T(s’ \mid s,a) \) and the state-action space is not too large then we could apply techniques such as dynamic programming to find optimal policy. In very large state-action spaces, where it is infeasible to use exhaustive search algorithms, Monte Carlo tree search are preferred. However, in general we do not have a perfect model of the MDP environments and need to explore techniques for determining the optimal policy anyway. This might be a hard task, but there are some good news. It can be shown for the infinite-horizon discounted reward that there exists an optimal deterministic stationary policy \( \pi^{\ast} \) given that the environment also is stationary.</p>
 
 <h3 id="action-value-function">Action-value function</h3>
 <p>A useful concept in developing policies is the concept of action-value function. The action-value function can be seen as the expected cumulative discounted reward (or the “quality”) of starting in state \( s \) taking action \( a \) and then following policy \( \pi \). The action-value function is always conditional on some policy and can be defined as</p>
 
 <p>\begin{equation}
-Q_{\pi}(s,a) = \mathbb{E_{\pi}} \big[ G_t | S_t=s, A_t=a \big].
+Q^{\pi}(s,a) = \mathbb{E_{\pi}} \big[ G_t | S_t=s, A_t=a \big].
 \end{equation}</p>
 
 <p>Finding the optimal policy \( \pi^{\ast} \) is equivalent to finding the optimal state-action value function \( Q^{\ast} \) and solving the MDP. Because when the optimal state-action value function is found, we have the optimal policy by</p>
@@ -294,11 +273,11 @@ Q_{\pi}(s,a) = \mathbb{E_{\pi}} \big[ G_t | S_t=s, A_t=a \big].
 <p align="center">
 $$
 \begin{align}
-Q_{\pi}(s,a) &amp;= \mathbb{E_{\pi}} \big[ G_t | S_t=s, A_t=a \big] \\
+Q^{\pi}(s,a) &amp;= \mathbb{E_{\pi}} \big[ G_t | S_t=s, A_t=a \big] \\
              &amp;= \mathbb{E_{\pi}} \big[ R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + ...| S_t=s, A_t=a \big] \\
              &amp;= \mathbb{E_{\pi}} \big[ R_{t+1} + \gamma (R_{t+2} + \gamma R_{t+3} + ...)| S_t=s, A_t=a \big] \\
              &amp;= \mathbb{E_{\pi}} \big[ R_{t+1} + \gamma G_{t+1}| S_t=s, A_t=a \big] \\
-             &amp;= \mathbb{E_{\pi}} \big[ R_{t+1} + \gamma Q_{\pi}(S_{t+1},A_{t+1})| S_t=s, A_t=a \big].
+             &amp;= \mathbb{E_{\pi}} \big[ R_{t+1} + \gamma Q^{\pi}(S_{t+1},A_{t+1})| S_t=s, A_t=a \big].
 \end{align}
 $$
 </p>
@@ -306,7 +285,7 @@ $$
 <p>So the state-action value function can be decomposed into the immediate reward \( R_{t+1} \) and the discounted reward of the successor states. Now, we can calculate the expectation by averaging the probability over all possible states and actions to arrive at the Bellman expectation equation given by</p>
 
 <p>\begin{equation}
-Q_{\pi}(s,a) = R(s,a) + \gamma \sum_{s’ \in \mathcal{S}} T(s’|s,a) \sum_{a’ \in \mathcal{S}} \pi(a’|s’) Q_{\pi}(s’,a’).
+Q^{\pi}(s,a) = R(s,a) + \gamma \sum_{s’ \in \mathcal{S}} T(s’|s,a) \sum_{a’ \in \mathcal{S}} \pi(a’|s’) Q^{\pi}(s’,a’).
 \end{equation}</p>
 
 <p>By substituting in the optimal policy we have found an equation for the optimal state-action value function as</p>
@@ -321,6 +300,8 @@ Q^{\ast}(s,a) = R(s,a) + \gamma \sum_{s \in \mathcal{S}} T(s’|s,a) \max_{a’}
 <ul>
   <li>David Silver’s <a href="http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html">course</a> on reinforcement learning</li>
   <li>Leslie Pack, Kaelbing et al., Reinforcement Learning: A Survey</li>
+  <li>Wikipedia, <a href="https://en.wikipedia.org/wiki/Bellman_equation">Bellman equation</a></li>
+  <li>Wikipedia, <a href="https://en.wikipedia.org/wiki/Markov_decision_process">Markov decision process</a></li>
 </ul>
 
 
@@ -334,35 +315,35 @@ Q^{\ast}(s,a) = R(s,a) + \gamma \sum_{s \in \mathcal{S}} T(s’|s,a) \max_{a’}
 
         <li>
           <h3>
-            <a href="/2017/12/04/Reinforcement-Learning-TD-and-Q-Learning/">
-              Reinforcement Learning: TD and Q-Learning
-              <small>04 Dec 2017</small>
-            </a>
-          </h3>
-        </li>
-
-      
-    
-      
-
-        <li>
-          <h3>
-            <a href="/2017/12/03/CartPole-with-OpenAI/">
-              Q-Learning for CartPole Problem
-              <small>03 Dec 2017</small>
-            </a>
-          </h3>
-        </li>
-
-      
-    
-      
-
-        <li>
-          <h3>
             <a href="/2017/12/03/Reinforcement-Learning-Intro/">
               Reinforcement Learning: Intro
               <small>03 Dec 2017</small>
+            </a>
+          </h3>
+        </li>
+
+      
+    
+      
+
+        <li>
+          <h3>
+            <a href="/2017/10/21/Exploring-Regional-Windpower-Data-in-Sweden/">
+              Exploring Regional Wind Power Data in Sweden
+              <small>21 Oct 2017</small>
+            </a>
+          </h3>
+        </li>
+
+      
+    
+      
+
+        <li>
+          <h3>
+            <a href="/2017/10/08/Electric-Power-System/">
+              Electric Power System
+              <small>08 Oct 2017</small>
             </a>
           </h3>
         </li>
