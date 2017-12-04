@@ -7,6 +7,13 @@ live: true
 ---
 http://kengz.me/openai_lab/#openai-lab
 
+We can do undiscounted markov reward processes if all sequences are finite.
+
+
+We do not need to discount in this case?
+sum is not infinite,
+value is the same all the time
+
 
 Read this:
 http://kvfrans.com/simple-algoritms-for-solving-cartpole/

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Reinforcement Learning: TD and Q-Learning &middot; El Niño
+    
+  </title>
+
+  <!-- Include tags -->
+  
+    
+
+
+
+
+
+
+  
+
+  <!-- Enable Plotly -->
+  
+
+  <!-- Enable LaTeX/MathJax -->
+  
+    <script type="text/javascript"
+      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+  
+
+  <!-- Google analytics -->
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="192x192" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/public/favicon.png">
+
+  <!-- Social icons -->
+  <link rel="stylesheet" href="/public/font-awesome/css/font-awesome.min.css">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="layout-reverse sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+
+  <div class="sidebar-item">
+    <p></p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">
+      <i class="fa fa-home fa-fw" aria-hidden="true"></i> Home
+    </a>
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">
+            <i class="fa fa-fw fa-user-circle" aria-hidden="true"></i> About Me
+          </a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/tags/">
+            <i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags
+          </a>
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="/presentations/">
+      <i class="fa fa-fw fa-comment" aria-hidden="true"></i> Presentations
+    </a>
+
+    <a class="sidebar-nav-item" href="https://www.linkedin.com/in/sebastian-haglund-el-gaidi-27a912b2/">
+      <i class="fa fa-fw fa-linkedin"></i> LinkedIn
+    </a>
+
+    <a class="sidebar-nav-item" href="https://github.com/sebaheg">
+      <i class="fa fa-fw fa-github"></i> GitHub
+    </a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>&copy; 2017. All rights reserved.</p>
+  </div>
+
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">El Niño</a>
+            <small>Algorithms to Fight Global Warming</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Reinforcement Learning: TD and Q-Learning</h1>
+  <!-- Add date and comment counts -->
+  <span class="post-date">04 Dec 2017
+    <br>
+    <!-- Add tags -->
+    
+    
+
+    <ul class="tag-box inline">
+     
+      
+      <li><a href="/tags/#machine-learning">machine-learning<span>6</span></a></li>
+     
+    </ul>
+  </span>
+
+  <h3 id="q-learning">Q-Learning</h3>
+
+<p>This is the same as taking the best</p>
+
+<p>\begin{equation}
+V(s) &lt;– V(s) + \alpha (r + \gamma V(s’) - V(s))
+\end{equation}</p>
+
+<p>Whenever a state s is visited, its estimated value is updated to be closer to r+\gammaV(s’) since r is the instantaneous reward recived in V(s’) is the estimated value of the actually occurring next state. The key ida is that r+\gamma V(s) is a sample of the value of V(s), and it is more likely to be correct because it incoporates the real r. As time goes on, we know more about the final state. This is the intuition behind the Bellman Equation. If the learning rate \alpha is adjusted proporly (it must decrease slowly) and the policy is held fix, this algorithm is guaranteed to converge to the optimal value function.  \( V^ast(s) = \max_a Q(s,a) \)</p>
+
+<p>The main idea of Q-learning is that we can iteratively approximate the Q value using the Bellman equation.
+It has been shown that
+The idea with Q-learning is to iteratively approximate the Q-function using the Bellman equation and update it as soon as we learn something about our environment.</p>
+
+<p>The way to think about Q is the best possible score at the end of the game after performing action a in state s. It is callled Q-function because it represents the “quality” of a certain action in a given state.</p>
+
+<p>Q-learning is the most popular and seems to be the most effective model-free algorithm for learning model-free from delayed reinforcement.
+The following equation is used:
+Q-learning can be seen as an incremental update in the direction of the newest error or as a picard iteration.</p>
+
+<p>Guesses are getting progressively better and this backs up so that you get the correct value function.</p>
+
+<p>Q-learning is a kind of <a href="https://en.wikipedia.org/wiki/Temporal_difference_learning">temporal difference algorithm</a>
+The reason these algorithms converge is that the next state you have stepped one step forward in time which brings you closer to the real truth.</p>
+
+<p>Bootstrapping = “feeds of itself.”</p>
+
+<p align="center">
+$$
+\begin{align}
+Q(s,a) &amp;= Q(s,a) + \alpha \Big(r + \gamma \max_{a'} Q(s',a') - Q(s,a) \Big) \\
+       &amp;= (1-\alpha) Q(s,a) + \alpha \Big(r + \gamma \max_{a'} Q(s',a') \Big)
+\end{align}
+$$
+</p>
+
+<p>if each action is executed in each state an infinite number of times, on an infinite run and \alpha is decayed appropriately, the Q-values will converge with probability 1 to Q^\ast. If alpha is not decreased then we might over shoot and oscillate around the optimal Q.</p>
+
+<p>If you act too greedy the algorithm might not converge to the optimal value, but actually get stuck. Since you might not see enough of the state-action space to find a optimal policy.</p>
+
+<p>can be seen as fixed point iteration of the Bellman equation.</p>
+
+<p>Alpha should be decreased slowly.</p>
+
+<p>In here, we represent the world as a graph of states connected by transitions (or actions). It means that to predict your future state, you will only need to consider your current state and the action that you choose to perform. The key here is that you don’t need to consider your previous states. This is what people call a Markov Model. Although your past does have influences on your future, this model works because you can always encode information about the past in your current state.</p>
+
+<p>Q-Learning is a method of finding these optimal policies. You can read more about it on this page. Essentially, through trials-and-errors, you find a Q-value for each state-action pair. This Q-value represents the desirability of an action given the current state. Over time, if the world is static (i.e. the physics or the cause-and-effects don’t change), the Q-values would converge and the optimal policy of a given state would be the action with the largest Q-value.</p>
+
+<p><strong>Temporal credit assignment problem</strong>, action might have far reaching effects.
+<strong>Exploration vs exploitation dilemma</strong></p>
+<h3 id="exploration-vs-exploitation-dilemma">Exploration vs exploitation dilemma.</h3>
+<p>sequential data is correlated.
+credit assignment problem.
+learning changes</p>
+
+<p>Exploration depends on how long the agent is expected to play. longer plays more exploration is needed. Might be that you get a bad meal at a good restaurant. So ther emay also be a component of uncertainty. There are some ad-hoc strategies that have been developed to account for this. The do not provide optimal algorithms for this type of problem. They should rather be seen as reasonable and computational tractable heuristics.
+Unlucky sampling in the beginning might indicate that the best action’s reward is less than the reward obtained from a suboptimal action. Then the suboptimal action will be chosen and the Leaving the true optimal  action starved of data and its superiority never discovered.</p>
+
+<ul>
+  <li>Greedy
+Unlucky sampling might result in that the agent narrows in on a suboptimal policy, not discovering that there are better policiies. Since the agent greedly feeds of the best discovered action, it will never explore and discover other potentially better actions.</li>
+  <li>epsilon-greedy
+Here we choose a random action with a probability p, that could slowly decrease as the agent feeds of the optimal action in the end.</li>
+  <li>Softmax exploration
+Boltzmann exploration tries to remedy the fact that a non-greedy action it is no more likely to try a promising alternative than a clearly hopeless alternative. The temperature should be decreased with time otherwise the algorithm might be unnecessarly slow to converge.
+\( P(a) = \frac{\exp{\hat R(a)/T}}{\sum_{a’ \in A} \exp{\hat R(a’)/T}} \)</li>
+</ul>
+
+<p>Generally it can be said that exploration should converge to some regime where exploratory action is taken rarely or never. However, when the environment is non-stationary, exploration must continue in order to notice changes to the environment.</p>
+
+<p>In cases where we have a stationary environment, the exploration should eventually go to zero, otherwise exploration must continue to take place to notice changes in the environent. For cartpole this should be zero in the end.</p>
+
+<p>To choose the best restaurant is similar to the <a href="https://en.wikipedia.org/wiki/Multi-armed_bandit">multi-armed bandit problem</a>.</p>
+
+<p>The longer the game is to be played the more value is there in exploration. Might be that I get a bad meal in a good restataurant, but need to test several time to find out.</p>
+
+<p>Reinforcement learning is a type of problem</p>
+
+<h3 id="function-approximators">Function approximators</h3>
+<p>Generalization over actions,
+Generalization over states</p>
+
+<p>Tables are noisy. There is usually a generalization that can be found. The value of a state very close to another state is probably similar. This can not be captured with table Q-learning since all states must be visited.</p>
+
+<p>Tables are noisy and take long time to learn. Neural network can generalize from seen states to unseen states.</p>
+
+<p>Insert picture with different architecutre possibiliies.
+Using the network to find the optimal action in the continous case can be challanging.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+<p>In order to solve highly complex problems, we must give up tabula rasa learning techniques and being to incorporate bias that will give leverage to the learning process. Alpha Go zero is a step towards tabula rasa learning. Link the video with David Silver.</p>
+
+<p>“With appropriate biases  supplied by human programmers or teachers  complex reinforcement  learning problems will eventually b e solvable  There is still much work to b e done and many interesting questions remaining for learning techniques and esp ecially regarding metho ds for approximating  decomp osing  and incorp orating bias into problems
+“</p>
+<h3 id="references">References</h3>
+<ul>
+  <li>David Silver’s <a href="http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html">course</a> on reinforcement learning</li>
+  <li>Leslie Pack, Kaelbing et al., Reinforcement Learning: A Survey</li>
+</ul>
+
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      
+
+        <li>
+          <h3>
+            <a href="/2017/12/04/Reinforcement-Learning-MDP-and-Bellman-Equation/">
+              Reinforcement Learning: MDP and Bellman Equation
+              <small>04 Dec 2017</small>
+            </a>
+          </h3>
+        </li>
+
+      
+    
+      
+
+        <li>
+          <h3>
+            <a href="/2017/12/03/CartPole-with-OpenAI/">
+              Q-Learning for CartPole Problem
+              <small>03 Dec 2017</small>
+            </a>
+          </h3>
+        </li>
+
+      
+    
+      
+
+        <li>
+          <h3>
+            <a href="/2017/12/03/Reinforcement-Learning-Intro/">
+              Reinforcement Learning: Intro
+              <small>03 Dec 2017</small>
+            </a>
+          </h3>
+        </li>
+
+      
+    
+  </ul>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <script id="dsq-count-scr" src="//el-nino.disqus.com/count.js" async></script>
+    
+  </body>
+</html>

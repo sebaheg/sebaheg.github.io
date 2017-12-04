@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Reinforcement Learning: MDP and Bellman Equation &middot; El Niño
+    
+  </title>
+
+  <!-- Include tags -->
+  
+    
+
+
+
+
+
+
+  
+
+  <!-- Enable Plotly -->
+  
+
+  <!-- Enable LaTeX/MathJax -->
+  
+    <script type="text/javascript"
+      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+  
+
+  <!-- Google analytics -->
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="192x192" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/public/favicon.png">
+
+  <!-- Social icons -->
+  <link rel="stylesheet" href="/public/font-awesome/css/font-awesome.min.css">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="layout-reverse sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+
+  <div class="sidebar-item">
+    <p></p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">
+      <i class="fa fa-home fa-fw" aria-hidden="true"></i> Home
+    </a>
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">
+            <i class="fa fa-fw fa-user-circle" aria-hidden="true"></i> About Me
+          </a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/tags/">
+            <i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags
+          </a>
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="/presentations/">
+      <i class="fa fa-fw fa-comment" aria-hidden="true"></i> Presentations
+    </a>
+
+    <a class="sidebar-nav-item" href="https://www.linkedin.com/in/sebastian-haglund-el-gaidi-27a912b2/">
+      <i class="fa fa-fw fa-linkedin"></i> LinkedIn
+    </a>
+
+    <a class="sidebar-nav-item" href="https://github.com/sebaheg">
+      <i class="fa fa-fw fa-github"></i> GitHub
+    </a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>&copy; 2017. All rights reserved.</p>
+  </div>
+
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">El Niño</a>
+            <small>Algorithms to Fight Global Warming</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Reinforcement Learning: MDP and Bellman Equation</h1>
+  <!-- Add date and comment counts -->
+  <span class="post-date">04 Dec 2017
+    <br>
+    <!-- Add tags -->
+    
+    
+
+    <ul class="tag-box inline">
+     
+      
+      <li><a href="/tags/#machine-learning">machine-learning<span>6</span></a></li>
+     
+    </ul>
+  </span>
+
+  <h2 id="introduction">Introduction</h2>
+<p>Reinforcement learning is a goal oriented approach to solving problems where an agent has to take decisions in order to maximise some cumulative reward. There are two ways of learning a new skill top-down or bottom-up. The top-down approach is theoretical, you consider expert knowledge and read books about a topic in order to understand it better. Another way of doing it is the more practical bottom-up approach, where you try to learn by doing.</p>
+
+<p>In a previous post, I gave an introduction to reinforcement learning. In the this post I will try to summaries the theory of reinforcement learning. We will look into how the problem can be framed mathematically and develop a criterion for when we have reached optimality. Since reinforcement learning is goal oriented, we do not know what is optimal behaviour beforehand. Therefore, this criterion for optimality provides indispensable guidance in helping the agent to learn.</p>
+
+<h2 id="markov-decision-problem">Markov decision problem</h2>
+<p>In order to formalize the reinforcement learning problem we need to put it into some mathematics. The <a href="https://en.wikipedia.org/wiki/Markov_decision_process">Markov
+decision problem</a> (MDP) framework can be used to achieve this. The MDP relies on the Markov property, which states that:</p>
+
+<p class="message">
+"The future is independent of the past given the present."
+</p>
+
+<p>A Markov chain is a (possibly stochastic) discrete time process determining the transition between different states \( s \). In order for it to be a Markov chain, it needs to satisfy the Markov property. Extending Markov chains with decisions and rewards gives a MDP. The different components in a MDP are:</p>
+
+<ul>
+  <li>States: \( s \in \mathbb{S} \)</li>
+  <li>Observations: \( y \in \mathbb{Y} \)</li>
+  <li>Actions: \( a \in \mathbb{A} \)</li>
+  <li>Reward: \( r: \mathbb{S} \times \mathbb{A} \to \mathbb{R} \)</li>
+  <li>State transition: \( T: \mathbb{S} \times \mathbb{A} \to \mathbb{S} \)</li>
+  <li>Observable state transition: \( O: \mathbb{S} \times \mathbb{A} \to \mathbb{Y} \)</li>
+</ul>
+
+<p><strong>why do I need state and action to observe?</strong></p>
+
+<p>Using this notation we can express a process with the Markov property as</p>
+
+<p align="center">
+$$
+\begin{align}
+\mathbb{P} [s_{t+1} | s_t, a_t, s_{t-1}, a_{t-1}, ...] &amp;= \mathbb{P} [s_{t+1} | s_t, a_t], \\
+\mathbb{P} [y_t | s_t, a_t, s_{t-1}, a_{t-1}, ...] &amp;= \mathbb{P} [y_t | s_t, a_t]
+\end{align}
+$$
+</p>
+
+<p>in general and as</p>
+
+<p align="center">
+$$
+\begin{align}
+s_{t+1} &amp;= T(s_t,a_t,s_{t-1},a_{t-1},...) = T(s_t,a_t), \\
+y_t &amp;= O(s_t,a_t,s_{t-1},a_{t-1},...) = O(s_t,a_t)
+\end{align}
+$$
+</p>
+
+<p>for deterministic processes. If we have perfect state observation of the process, then \( y_t = s_t \). Futhermore, the process can be said to be stationary if the probability \( \mathbb{P} \) (or the functions \( f \) and \( g \) in the deterministic case) does not change with time.</p>
+
+<h3 id="state">State</h3>
+<p>The Markov state is a sufficient statistics of the future. A Markov state can always be found, since one can always include the complete history of the past in the current state. However, it is preferable to keep the state representation as compact as possible without losing the Markov property. Therefore, it is the up designer of the algorithm to choose appropriate information of the past to include in the state representation.</p>
+
+<p>An example of an imperfect state representation (which is non-Markov) is to only include the position and not the velocity of a flying aircraft. In this case there is no way to tell the difference between an aircraft that is falling straight down or cruising at a safe speed from its state alone. In this case the correct state representation would be both position and velocity. This fact is mathematically justified in that both position and velocity is needed to integrate the governing equations of motion forward in time.</p>
+
+<h3 id="agent">Agent</h3>
+<p>The agent in reinforcement learning is an entity that is learning and making decision based on previous experience. It can be anything from a Go player to a physical robot playing football. The agent is not told how to achieve a task rather it is given an objective in the form of a reward signal. Then it is up to the agent to find a policy that enables it to make the correct actions given an observation for reaching the objective. The agent may not have perfect perception of the state. Observations might be noisy or provide only incomplete information. The most naive strategy to deal with partially observability is to simply ignore it.</p>
+
+<h3 id="environment">Environment</h3>
+<p>The agent is situated in an environment with some characteristics. Some examples of environments are the rules of Go, real world physics and Atari 2600 games. Usually, the characteristics of an environment are not known and can be both deterministic or stochastic. In stochastic environments, taking the same action in the same state twice may result in different next states and/or rewards. Furthermore, if the if the environment is non-stationary, the probabilities of making state transitions or receiving specific rewards may also change over time.</p>
+
+<h3 id="the-reward">The reward</h3>
+<p>One of the main assumptions in reinforcement learning is the <em>reward hypothesis</em>. This assumption states that all goals can be described as maximising the expected cumulative reward. Furthermore, a single scalar must be enough to specify the reward signal since the aim of a agent is to provide appropriate actions. To make actions you need to weight up different possible outcomes in the end anyway. This assumption might be the most disputable assumption in all of reinforcement learning.</p>
+
+<p>In order for agents to learn optimal operating strategies in an environment, the designer has to define what the optimal is. This means specifying a objective function that the agent can use in the optimisation. The most commonly used objective (or target) function to maximise is the infinite-horizon discounted reward. This model takes long-run reward into account but future rewards are geometrically discounted using a discounting factor \( \gamma \in [0,1] \). The cumulative discounted reward is calculated as:</p>
+
+<p>\begin{equation}
+G_t = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + … + \gamma^T R_{t+T+1} = \sum_{k=0}^{T} \gamma^k R_{t+k+1}.
+\end{equation}</p>
+
+<p>The task to be performed can either be divided into distinct episodes (Episodical) for which \( T \in \mathbb{N} \) or continuing for which \( T \to \infty \). Setting \( \gamma = 0 \) and \( \gamma \) = 1 result in a myopic and far-sighted estimate respectively. The use of a discounting factor \( \gamma \) can be justified in several ways:</p>
+
+<ul>
+  <li>future reward is more uncertain and should therefore be discounted;</li>
+  <li>future reward is less valuable (see for example <a href="https://en.wikipedia.org/wiki/Time_value_of_money">Time value of money</a>);</li>
+  <li>as a mathematical trick to bound the infinite sum.</li>
+</ul>
+
+<h3 id="experience-tuple">Experience tuple</h3>
+<p>By putting the concept of state, action and reward together we represent a sample of experience as</p>
+
+<p>\begin{equation}
+\langle s, a, r, s’ \rangle,
+\end{equation}</p>
+
+<p>where \( s’ \) is the next state after taking action \( a \) in state \( s \). For an episode of length \( N \) we will accumulate a corresponding number of such experience tuples.</p>
+
+<h2 id="finding-a-policy">Finding a policy</h2>
+<p>The policy is a set of implicit or explicit rules that signifies how the agent should behave in different circumstances. The policy can be represented as the probability of taking an action \( a \) given the state \( s \) according to</p>
+
+<p>\begin{equation}
+\pi(a|s) = \mathbb{P} \big[ A_t=a | S_t=s \big].
+\end{equation}</p>
+
+<p>If we knew the dynamics of the environment, meaning we have a perfect model of the state transition function \( T \) and the state-action space is not too large then we could apply techniques such as dynamic programming to find optimal policy. In very large state-action spaces, where it is infeasible to use exhaustive search algorithms, Monte Carlo tree search are preferred. However, we do not have a perfect model of the MDP environments and need to explore techniques for determining the optimal policy anyway. This might be a hard task, but there are some good news. It can be shown for the infinite-horizon discounted reward that there exists an optimal deterministic stationary policy \( \pi^{\ast} \) given that the environment also is stationary.</p>
+
+<h3 id="action-value-function">Action-value function</h3>
+<p>A useful concept in developing policies is the concept of action-value function. The action-value function can be seen as the expected cumulative discounted reward (or the “quality”) of starting in state \( s \) taking action \( a \) and then following policy \( \pi \). The action-value function is always conditional on some policy and can be defined as</p>
+
+<p>\begin{equation}
+Q_{\pi}(s,a) = \mathbb{E_{\pi}} \big[ G_t | S_t=s, A_t=a \big].
+\end{equation}</p>
+
+<p>Finding the optimal policy \( \pi^{\ast} \) is equivalent to finding the optimal state-action value function \( Q^{\ast} \) and solving the MDP. Because when the optimal state-action value function is found, we have the optimal policy by</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{equation}
+    \pi^{\ast}(a|s) =
+\begin{cases}
+    1, & \text{if } a = \mathop{\mathbin{\arg}{\max}}\limits_{a \in \mathcal{A}} Q^{\ast}(s,a) \\
+    0, & \text{otherwise}.
+\end{cases}
+\end{equation} %]]></script>
+
+<p>Conversely, the optimal value of a state is the infinite cumulative discounted rewards that the agent will gain if it starts in that state and executes the optimal policy. So the state-action value function and the policy are really to sides of the same coin. The meaning of an optimal state-action value (or policy) can be expressed mathematically as</p>
+
+<p>\begin{equation}
+\max_{a’} Q^{\ast}(s,a’) \ge \max_{a’} Q^{\pi}(s,a’) \ \forall s, \pi.
+\end{equation}</p>
+
+<h3 id="bellman-equation">Bellman equation</h3>
+<p>A fundamental idea in solving reinforcement learning problems is the Bellman’s principle of optimality. It states that:</p>
+
+<p class="message">
+"An optimal policy has the property that whatever the initial state and initial decision are, the remaining decisions must constitute an optimal policy with regard to the state resulting from the first decision."
+</p>
+
+<p>This principle can be derived by considering the definition of the state-action value function as</p>
+
+<p align="center">
+$$
+\begin{align}
+Q_{\pi}(s,a) &amp;= \mathbb{E_{\pi}} \big[ G_t | S_t=s, A_t=a \big] \\
+             &amp;= \mathbb{E_{\pi}} \big[ R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + ...| S_t=s, A_t=a \big] \\
+             &amp;= \mathbb{E_{\pi}} \big[ R_{t+1} + \gamma (R_{t+2} + \gamma R_{t+3} + ...)| S_t=s, A_t=a \big] \\
+             &amp;= \mathbb{E_{\pi}} \big[ R_{t+1} + \gamma G_{t+1}| S_t=s, A_t=a \big] \\
+             &amp;= \mathbb{E_{\pi}} \big[ R_{t+1} + \gamma Q_{\pi}(S_{t+1},A_{t+1})| S_t=s, A_t=a \big].
+\end{align}
+$$
+</p>
+
+<p>So the state-action value function can be decomposed into the immediate reward \( R_{t+1} \) and the discounted reward of the successor states. Now, we can calculate the expectation by averaging the probability over all possible states and actions to arrive at the Bellman expectation equation given by</p>
+
+<p>\begin{equation}
+Q_{\pi}(s,a) = R(s,a) + \gamma \sum_{s’ \in \mathcal{S}} T(s’|s,a) \sum_{a’ \in \mathcal{S}} \pi(a’|s’) Q_{\pi}(s’,a’).
+\end{equation}</p>
+
+<p>By substituting in the optimal policy we have found an equation for the optimal state-action value function as</p>
+
+<p>\begin{equation}
+Q^{\ast}(s,a) = R(s,a) + \gamma \sum_{s \in \mathcal{S}} T(s’|s,a) \max_{a’} Q^{\ast}(s’,a’).
+\end{equation}</p>
+
+<p>This equation is referred to as the Bellman optimality equation and recursively relates the optimal action-value function with itself. This means that if we got our state-action value function correct, then it must obey the Bellman optimality equation. This gives a sound mathematical ground to use this equation as guidance to find the optimal state-action value function. However, the value function resulting from the Bellman optimality equation might be nonlinear and there is no guaranteed that it has a closed form expression.</p>
+
+<h3 id="references">References</h3>
+<ul>
+  <li>David Silver’s <a href="http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html">course</a> on reinforcement learning</li>
+  <li>Leslie Pack, Kaelbing et al., Reinforcement Learning: A Survey</li>
+</ul>
+
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      
+
+        <li>
+          <h3>
+            <a href="/2017/12/04/Reinforcement-Learning-TD-and-Q-Learning/">
+              Reinforcement Learning: TD and Q-Learning
+              <small>04 Dec 2017</small>
+            </a>
+          </h3>
+        </li>
+
+      
+    
+      
+
+        <li>
+          <h3>
+            <a href="/2017/12/03/CartPole-with-OpenAI/">
+              Q-Learning for CartPole Problem
+              <small>03 Dec 2017</small>
+            </a>
+          </h3>
+        </li>
+
+      
+    
+      
+
+        <li>
+          <h3>
+            <a href="/2017/12/03/Reinforcement-Learning-Intro/">
+              Reinforcement Learning: Intro
+              <small>03 Dec 2017</small>
+            </a>
+          </h3>
+        </li>
+
+      
+    
+  </ul>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <script id="dsq-count-scr" src="//el-nino.disqus.com/count.js" async></script>
+    
+  </body>
+</html>
