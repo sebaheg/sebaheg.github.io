@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Reinforcement Learning: Q-Learning &middot; El Niño
+    
+  </title>
+
+  <!-- Include tags -->
+  
+    
+
+
+
+
+
+
+  
+
+  <!-- Enable Plotly -->
+  
+
+  <!-- Enable LaTeX/MathJax -->
+  
+    <script type="text/javascript"
+      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+  
+
+  <!-- Google analytics -->
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="192x192" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/public/favicon.png">
+
+  <!-- Social icons -->
+  <link rel="stylesheet" href="/public/font-awesome/css/font-awesome.min.css">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="layout-reverse sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+
+  <div class="sidebar-item">
+    <p></p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">
+      <i class="fa fa-home fa-fw" aria-hidden="true"></i> Home
+    </a>
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">
+            <i class="fa fa-fw fa-user-circle" aria-hidden="true"></i> About Me
+          </a>
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/tags/">
+            <i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags
+          </a>
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="/presentations/">
+      <i class="fa fa-fw fa-comment" aria-hidden="true"></i> Presentations
+    </a>
+
+    <a class="sidebar-nav-item" href="https://www.linkedin.com/in/sebastian-haglund-el-gaidi-27a912b2/">
+      <i class="fa fa-fw fa-linkedin"></i> LinkedIn
+    </a>
+
+    <a class="sidebar-nav-item" href="https://github.com/sebaheg">
+      <i class="fa fa-fw fa-github"></i> GitHub
+    </a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>&copy; 2017. All rights reserved.</p>
+  </div>
+
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">El Niño</a>
+            <small>Algorithms to Fight Global Warming</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Reinforcement Learning: Q-Learning</h1>
+  <!-- Add date and comment counts -->
+  <span class="post-date">10 Dec 2017
+    <br>
+    <!-- Add tags -->
+    
+    
+
+    <ul class="tag-box inline">
+     
+      
+      <li><a href="/tags/#machine-learning">machine-learning<span>4</span></a></li>
+     
+    </ul>
+  </span>
+
+  <h2 id="introduction">Introduction</h2>
+<p>Reinforcement learning is computational approach to understand and automate goal-directed learning and decision making. It is a kind of artificial intelligence which is based on simpler and fewer general principles compared to systems based on vast amounts of domain knowledge. The main idea of reinforcement learning is to learn from interaction, without having to rely on exemplary supervision or complete models of the environment.</p>
+
+<p>In previous blog posts, I have layed the foundation for the theory behind reinforcement learning. In this post we will see how this theory can be used to construct actual algorithms that learn by iteratively update themselves with data from experience.</p>
+
+<h2 id="temporal-difference-learning">Temporal difference learning</h2>
+<p>Undoubtedly the most novel idea of reinforcement learning is that of temporal differencing (TD). TD learning is a combination of Monte Carlo methods and dynamic programming (DP). Just like Monte Carlo, TD methods can learn directly from raw experience without a model describing the dynamics of environment. And just like DP, TD methods update estimates based in part on other learned estimates, without waiting for a final outcome. The capabilities of TD methods have not yet been fully explored. Sutton and Barto describe their potential as:</p>
+
+<p class="message">
+"They are general methods for learning to make long-term predictions about dynamical systems. For example, TD methods may be relevant to predicting financial data, life spans, election outcomes, weather patterns, animal behavior, demands on power stations, or customer purchases. It was only when TD methods were analyzed as pure prediction methods, independent of their use in reinforcement learning, that their theoretical properties first came to be well understood. Even so, these other potential applications of TD learning methods have not yet been extensively explored."
+</p>
+
+<p>The core idea of TD methods is that one adjusts estimates to match other, more accurate, estimates. The reason this works is because the target estimates are produced further into the future, when more information is available. TD methods learn from incomplete episodes (so that continuing tasks also can be dealt with) by substituting the remainder of the return with an estimate. This is known as bootstrapping and allows for learning online after each time step. Bootstrapping allows to learn faster by exploiting the Markov property, which is ignored by Monte Carlo methods.</p>
+
+<p>TD methods are similar to Monte Carlo in that learning takes place by sampling the environment according to some policy. But Monte Carlo methods require to complete a whole episode before learning happens. Monte Carlo methods only take information from the ground truth and are therefore unbiased. However, because they update the whole episode after the which contain much uncertainty, they are high variance. On the other hand, TD methods are biased since they do not use the ground truth for learning (they use estimates instead), but have lower variance because they update over a shorter time span. This trade-off is know as the <a href="https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff">Bias–variance tradeoff
+</a>.</p>
+
+<h2 id="exploration-exploitation-dilemma">Exploration-exploitation dilemma</h2>
+<p>How many restaurants in a new city should you explore before starting to exploit your favourite ones? This is exactly what the Exploration-exploitation dilemma is about, and in reinforcement learning it is called <a href="https://en.wikipedia.org/wiki/Multi-armed_bandit">multi-armed bandit problem</a>. Even if you find that one restaurant does not serve any tasty food. How can you know for sure that it was not because you picked the wrong dish or the chef had a bad day. Furthermore, if you are staying in the city for a long while, you might want to keep looking longer for that</p>
+
+<p>When using a greedy policy that, unlucky sampling in the beginning might indicate that best expected reward of the best action is less than the expected reward from a suboptimal action. The suboptimal action will continue to get chosen, leaving the true optimal action starved of data and its superiority never discovered.</p>
+
+<p>Several ad-hoc strategies have been developed as remedies for the Exploration-exploitation dilemma. One naive way that have proven to be efficient in practice is the \( \epsilon \)-greedy policy. An \( \epsilon \)-greedy policy takes a random action with the probability \( \epsilon \in [0,1] \). It is clear that in stationary environments the optimal policy does not include an element of randomness, thus \( \epsilon \) should slowly be decreased. Another, maybe more sensible way is Boltzmann exploration. Boltzmann exploration tries to remedy the fact that a non-greedy action is no more likely to try a promising alternative than a clearly hopeless alternative. This is done by choosing actions based on their softmax probability according to their state-action value as</p>
+
+<p>\begin{equation}
+\pi(a|s) = \frac{\exp{ \big[ Q(a,s)/T \big] }}{\sum_{a’ \in A} \exp{ \big[ Q(s,a)/T \big] }}.
+\end{equation}</p>
+
+<p>The parameter \( T \) is the temperature, which should be decreased over time to promote more promising actions and by doing so speed up convergence.</p>
+
+<h2 id="q-learning">Q-Learning</h2>
+<p>The most popular method method in reinforcement learning is Q-learning. This method is built on TD learning and provides a framework for learning model-free from delayed reinforcement. The main idea of Q-learning is to iteratively approximate the \( Q_{\ast}(s,a) \) using the Bellman optimality equation. The method is online since it updates the best estimate of the Q-value as soon new experience is collected and work independently of the policy being followed. The iterative updating scheme for the Q-value is</p>
+
+<p align="center">
+$$
+\begin{align}
+Q(s,a) &amp;= Q(s,a) + \alpha \Big(r + \gamma \max_{a'} Q(s',a') - Q(s,a) \Big) \\
+       &amp;= (1-\alpha) Q(s,a) + \alpha \Big(r + \gamma \max_{a'} Q(s',a') \Big)
+\end{align}
+$$
+</p>
+
+<p>where \( \alpha \in [0,1] \) is a learning parameter that signifies how fast learning should be. Choosing \( \alpha \) too big however, will lead to divergence. If the state-action space is discrete (or can be discretized) then the state-action value function can be represented by a look-up table. The equation above represents to different ways of looking at the update. In the first equality, the Q-value is updated in the direction of the error in the RHS of the Bellman optimality equation. In the second equality, the Q-value is updated by using applying fixed-point iteration.</p>
+
+<p>In a stationary environment and a small enough \(( \alpha \)), the Q-learning update is guaranteed to converge \( Q(s,a) \rightarrow Q_{\ast}(s,a) \) if all state-action pairs continue to be updated. In order to make sure that all state are explored, an \( \epsilon \)-greedy behaviour policy is usually applied. However, our target policy is the optimal policy, which is a greedy policy. For this reason, Q-learning is an off-policy learning algorithm.</p>
+
+<h2 id="function-approximation">Function approximation</h2>
+<p>As mentioned, the state-action value function \( Q(s,a) \) can be represented by a look-up table. However, tables are noisy and take long time to learn for large state-action spaces. In fact, because of the <a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a> learning with look-up table is impractical for most real applications. Furthermore, state-action pairs that are close to each other are usually similar. For reason, it is close at hand to think that function approximizers could find these generalizations. One type of such function approximizers that have proven capable are <a href="">neural networks</a>. When replacing the look-up table with a neural network, the update is done by minimizing the loss function</p>
+
+<p>\begin{equation}
+L(\boldsymbol{w}) = \big( r + \gamma \max_{a’} Q(s’,a’,\boldsymbol{w}) - Q(s,a,\boldsymbol{w}) \big)^2
+\end{equation}</p>
+
+<p>by updating the weights \( \boldsymbol{w} \) of the neural network.</p>
+
+<h2 id="references">References</h2>
+<ul>
+  <li>David Silver’s <a href="http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html">course</a> on reinforcement learning</li>
+  <li>Leslie Pack, Kaelbing et al., Reinforcement Learning: A Survey</li>
+  <li>Richard S. Sutton and Andrew G. Barto, <a href="http://incompleteideas.net/book/bookdraft2017nov5.pdf">Reinforcement Learning: An Introduction</a></li>
+  <li>Wikipedia, <a href="https://en.wikipedia.org/wiki/Q-learning">Q-learning</a></li>
+  <li>Wikipedia, <a href="https://en.wikipedia.org/wiki/Temporal_difference_learning">Temporal difference learning</a></li>
+</ul>
+
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      
+
+        <li>
+          <h3>
+            <a href="/2017/12/05/Reinforcement-Learning-Bellman-Equation/">
+              Reinforcement Learning: Bellman Equation
+              <small>05 Dec 2017</small>
+            </a>
+          </h3>
+        </li>
+
+      
+    
+      
+
+        <li>
+          <h3>
+            <a href="/2017/12/04/Reinforcement-Learning-MDP-and-Bellman-Equation/">
+              Reinforcement Learning: Markov Decision Process
+              <small>04 Dec 2017</small>
+            </a>
+          </h3>
+        </li>
+
+      
+    
+      
+
+        <li>
+          <h3>
+            <a href="/2017/12/03/Reinforcement-Learning-Intro/">
+              Reinforcement Learning: Intro
+              <small>03 Dec 2017</small>
+            </a>
+          </h3>
+        </li>
+
+      
+    
+  </ul>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://el-nino.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <script id="dsq-count-scr" src="//el-nino.disqus.com/count.js" async></script>
+    
+  </body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Reinforcement Learning: Bellman Equation &middot; El Niño
+    
+  </title>
+
+  <!-- Include tags -->
+  
+    
+
+
+
+
+
+
+  
+
+  <!-- Enable Plotly -->
+  
+
+  <!-- Enable LaTeX/MathJax -->
+  
+    <script type="text/javascript"
+      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+  
+
+  <!-- Google analytics -->
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="192x192" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/public/favicon.png">
+
+  <!-- Social icons -->
+  <link rel="stylesheet" href="/public/font-awesome/css/font-awesome.min.css">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="layout-reverse sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+
+  <div class="sidebar-item">
+    <p></p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">
+      <i class="fa fa-home fa-fw" aria-hidden="true"></i> Home
+    </a>
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">
+            <i class="fa fa-fw fa-user-circle" aria-hidden="true"></i> About Me
+          </a>
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/tags/">
+            <i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags
+          </a>
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="/presentations/">
+      <i class="fa fa-fw fa-comment" aria-hidden="true"></i> Presentations
+    </a>
+
+    <a class="sidebar-nav-item" href="https://www.linkedin.com/in/sebastian-haglund-el-gaidi-27a912b2/">
+      <i class="fa fa-fw fa-linkedin"></i> LinkedIn
+    </a>
+
+    <a class="sidebar-nav-item" href="https://github.com/sebaheg">
+      <i class="fa fa-fw fa-github"></i> GitHub
+    </a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>&copy; 2017. All rights reserved.</p>
+  </div>
+
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">El Niño</a>
+            <small>Algorithms to Fight Global Warming</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Reinforcement Learning: Bellman Equation</h1>
+  <!-- Add date and comment counts -->
+  <span class="post-date">05 Dec 2017
+    <br>
+    <!-- Add tags -->
+    
+    
+
+    <ul class="tag-box inline">
+     
+      
+      <li><a href="/tags/#machine-learning">machine-learning<span>4</span></a></li>
+     
+    </ul>
+  </span>
+
+  <h2 id="introduction">Introduction</h2>
+<p>Now that we have formalized the reinforcement learning problem using the MDP, we can start looking into how actually take decisions. In this post, I will explain the concept of value function and criterion for when we have reached optimal solution. Since reinforcement learning is goal oriented, we do not know what is optimal behaviour beforehand. Therefore, this criterion for optimality provides indispensable guidance in helping the agent to learn.</p>
+
+<h2 id="finding-a-policy">Finding a policy</h2>
+<p>The policy is a set of implicit or explicit rules that signifies how the agent should behave in different circumstances. The policy \( \pi(a|s): \mathcal{S} \times \mathcal{A} \to [0,1] \) can be represented as the probability of taking an action \( a \) given the state \( s \) according to</p>
+
+<p>\begin{equation}
+\pi(a|s) = \mathbb{P}_{\pi} \big( A_t=a | S_t=s \big).
+\end{equation}</p>
+
+<p>It can be shown for the infinite-horizon discounted reward that there exists an optimal deterministic stationary policy \( \pi_{\ast} \) given that the environment also is stationary. If we know the dynamics of the environment, meaning we have a perfect model of the state transition \( p(s’,r \mid s,a) \) and the state-action space is not too large, then we could apply techniques such as dynamic programming or linear programming to find the optimal policy. In very large state-action spaces, where it is infeasible to use exhaustive search algorithms, Monte Carlo tree searches are preferred instead. However, in general we do not have a perfect model of the MDP environments and need to explore techniques for determining the optimal policy anyway. This might seem like an insurmountable task, but there are some good news.</p>
+
+<p>Reinforcement learning algorithms can overcome this problem by interactive with the environment and combining ideas from dynamic programming and Monte Carlo search. These algorithms access the state transition probabilities through a simulator that is typically restarted many times to update the algorithms knowledge about state transition dynamics.</p>
+
+<h3 id="action-value-function">Action-value function</h3>
+<p>Undoubtedly, the most crucial idea of reinforcement learning is that of value functions. Whereas the reward signal indicates what is good in an immediate sense, a value function specifies what is good in the long run. The state-action value function can be seen as the expected cumulative discounted reward (or the “quality”) of starting in state \( s \), taking action \( a \) and then following policy \( \pi \). The action-value function is always conditional on some policy and can be defined as</p>
+
+<p>\begin{equation}
+Q_{\pi}(s,a) = \mathbb{E_{\pi}} \big[ G_t | S_t=s, A_t=a \big].
+\end{equation}</p>
+
+<p>It is values which we are most concerned with when making and evaluating decisions. We seek to take actions that bring states of highest value, not highest reward, because those are the action that bring the greatest amount of reward in the long run. In fact, finding the optimal policy \( \pi_{\ast} \) is equivalent to finding the optimal state-action value function \( Q_{\ast} \) and by that solve the MDP. Because when the optimal state-action value function is found, we have the optimal policy by</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{equation}
+    \pi^{\ast}(a|s) =
+\begin{cases}
+    1, & \text{if } a = \mathop{\operatorname{argmax}}\limits_{a'} Q_{\ast}(s,a') \\
+    0, & \text{otherwise}.
+\end{cases}
+\end{equation} %]]></script>
+
+<p>Or in word, any policy that is greedy with respect to the optimal value functions must be an optimal policy. Conversely, the optimal value of a state is the infinite cumulative discounted rewards that the agent will gain if it starts in that state and executes the optimal policy. So the state-action value function and the policy are really to sides of the same coin. It is the state-action value function that allows us to develop methods for solving a MDP without having access to a model of the environment. For this reason, methods using state-action value functions are called model-free methods.</p>
+
+<p>In order to know what we are looking for, we must specific what an optimal state-action value function (or policy) is. Mathematically, the optimal state-action value function can be expressed as</p>
+
+<p>\begin{equation}
+\max_{a’} Q^{\ast}(s,a’) \ge \max_{a’} Q^{\pi}(s,a’) \ \forall s, \pi.
+\end{equation}</p>
+
+<p>There is always at least one policy that is better than or equal to all other policies. Although, there may be more than one. On the other side, the state-action value function is unique and shared by all optimal policies.</p>
+
+<h3 id="bellman-equation">Bellman equation</h3>
+<p>A fundamental idea in solving reinforcement learning problems is the Bellman’s principle of optimality. It states that:</p>
+
+<p class="message">
+"An optimal policy has the property that whatever the initial state and initial decision are, the remaining decisions must constitute an optimal policy with regard to the state resulting from the first decision."
+</p>
+
+<p>This means that in order to achieve a global optimal trajectory, it is sufficient to maximize every subtrajectory locally as illustrated in the figure below (by the way, it is <a href="">Bellman</a> to the right).</p>
+
+<p align="center">
+  <img width="600" height="300" src="/images/bellman.png" />
+</p>
+
+<p>We can derive this principle by considering the definition of the state-action value function as</p>
+
+<p align="center">
+$$
+\begin{align}
+Q_{\pi}(s,a) &amp;= \mathbb{E_{\pi}} \big[ G_t \mid S_t=s, A_t=a \big] \\
+             &amp;= \mathbb{E_{\pi}} \big[ r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + ...| S_t=s, A_t=a \big] \\
+             &amp;= \mathbb{E_{\pi}} \big[ r_{t+1} + \gamma (r_{t+2} + \gamma r_{t+3} + ...)| S_t=s, A_t=a \big] \\
+             &amp;= \mathbb{E_{\pi}} \big[ r_{t+1} + \gamma G_{t+1}| S_t=s, A_t=a \big] \\
+             &amp;= \mathbb{E_{\pi}} \big[ r_{t+1} + \gamma
+             \mathbb{E_{\pi}} \big( G_{t+1} \mid S_{t+1}, A_{t+1} \big) \mid S_t=s, A_t=a \big] \\
+             &amp;= \mathbb{E_{\pi}} \big[ r_{t+1} + \gamma Q_{\pi}(S_{t+1},A_{t+1}) \mid S_t=s, A_t=a \big].
+\end{align}
+$$
+</p>
+
+<p>We see that the state-action value function can be decomposed into the immediate reward \( r_{t+1} \) and the discounted reward of the successor states. The expectation of the cumulative discounted reward can be calculated by weighting with the probability, then summing over all possible states, rewards and actions according to</p>
+
+<p>\begin{equation}
+Q_{\pi}(s,a) = \sum_{s’ \in \mathcal{S}} \sum_{r \in \mathcal{R}} p(s’,r \mid s,a) \bigg[ r + \gamma \sum_{a’ \in \mathcal{A}} \pi(a’|s’) Q_{\pi}(s’,a’) \bigg].
+\end{equation}</p>
+
+<p>In the deterministic case, it reduces to</p>
+
+<p>\begin{equation}
+Q_{\pi}(s,a) = r + \gamma Q_{\pi}(s’,\pi(s’)),
+\end{equation}</p>
+
+<p>where \( \pi(s): \mathcal{S} \to \mathcal{A} \). This equation is referred to as the Bellman expectation equation and is the consistency condition on the state-action value function. Given Bellman’s principle of optimality, the optimal policy is to act greedy with respect to the optimal state-action value function. Therefore, by substituting in the optimal policy we have found an equation for the optimal state-action value function as</p>
+
+<p align="center">
+$$
+\begin{align}
+Q_{\ast}(s,a) &amp;= \sum_{s' \in \mathcal{S}} \sum_{r \in \mathcal{R}} p(s',r \mid s,a) \bigg[ r + \gamma Q_{\ast}(s',\mathop{\operatorname{argmax}}\limits_{a'} Q_{\ast}(s',a')) \bigg] \\
+&amp;= \sum_{s' \in \mathcal{S}} \sum_{r \in \mathcal{R}} p(s',r \mid s,a) \bigg[ r + \gamma \mathop{\max}\limits_{a'} Q_{\ast}(s',a') \bigg]
+\end{align}
+$$
+</p>
+
+<p>In the deterministic case, it reduces to</p>
+
+<p>\begin{equation}
+Q_{\ast}(s,a) = r + \mathop{\max}\limits_{a’} \gamma Q_{\ast}(s’,a’),
+\end{equation}</p>
+
+<p>This equation is referred to as the Bellman optimality equation and recursively relates the optimal action-value function with itself. Intuitively, the Bellman optimality equation expresses the fact that the state-action value function under an optimal policy is equal to the immediate return from taking an action plus the discounted expected future return following the optimal policy from the successor state and onwards. If we got our state-action value function correct, then it must obey the Bellman optimality equation. This provides a sound mathematical ground to use as guidance to find the optimal state-action value function. However, the value function resulting from the Bellman optimality equation might be nonlinear and there is no guaranteed that it has a closed form expression.</p>
+
+<h3 id="references">References</h3>
+<ul>
+  <li>David Silver’s <a href="http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html">course</a> on reinforcement learning</li>
+  <li>Leslie Pack, Kaelbing et al., Reinforcement Learning: A Survey</li>
+  <li>Richard S. Sutton and Andrew G. Barto, <a href="http://incompleteideas.net/book/bookdraft2017nov5.pdf">Reinforcement Learning: An Introduction</a></li>
+  <li>Wikipedia, <a href="https://en.wikipedia.org/wiki/Bellman_equation">Bellman equation</a></li>
+</ul>
+
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      
+
+        <li>
+          <h3>
+            <a href="/2017/12/10/Reinforcement-Learning-Q-Learning/">
+              Reinforcement Learning: Q-Learning
+              <small>10 Dec 2017</small>
+            </a>
+          </h3>
+        </li>
+
+      
+    
+      
+
+        <li>
+          <h3>
+            <a href="/2017/12/04/Reinforcement-Learning-MDP-and-Bellman-Equation/">
+              Reinforcement Learning: Markov Decision Process
+              <small>04 Dec 2017</small>
+            </a>
+          </h3>
+        </li>
+
+      
+    
+      
+
+        <li>
+          <h3>
+            <a href="/2017/12/03/Reinforcement-Learning-Intro/">
+              Reinforcement Learning: Intro
+              <small>03 Dec 2017</small>
+            </a>
+          </h3>
+        </li>
+
+      
+    
+  </ul>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://el-nino.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <script id="dsq-count-scr" src="//el-nino.disqus.com/count.js" async></script>
+    
+  </body>
+</html>

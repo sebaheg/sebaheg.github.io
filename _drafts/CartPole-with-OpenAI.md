@@ -5,6 +5,27 @@ tags: machine-learning python
 mathjax: true
 live: true
 ---
+<!-- Eligibility Traces
+
+Frequent heuristics
+Recency heuristics-->
+
+<!-- On-policy vs Off-policy
+Describe this and what is the difference. In off-policy we can learn from other's policies. Meaning we can learn from human behaviour and so on.
+
+One reason for doing off-policy learning is so that we can explore at the same time as we improve our policy which should not explore.
+* Off-policy is important in order to learn from humans
+* re-use old experience generated from previous policies. (Do online updating)
+* learn about optimal policy while following exploratory policy
+Q-learning is specific to TD(0)-->
+
+Reinforcement learning is a goal oriented framework where agents are developed that have to take decisions in order to maximise some cumulative reward. There are two ways of learning a new skill top-down or bottom-up. The top-down approach is theoretical, you consider expert knowledge and might read books about a topic in order to understand it better. Another way of doing it is the more practical bottom-up approach, where you try to learn by doing.
+
+sequential data is correlated.
+
+sequential data is correlated.
+learning changes
+
 http://kengz.me/openai_lab/#openai-lab
 
 We can do undiscounted markov reward processes if all sequences are finite.

@@ -52,7 +52,7 @@ This link can be seen by plotting temperature and greenhouse gases such as carbo
   <img width="650" height="300" src="/images/temperature-co2.jpeg">
 </p>
 
-From the graph above, it can be seen that the Earth has been going in and out of glacial period with milder interglacial periods in-between. This supports the hypothesis that the Earth system is located in one of a few discrete states. The different between an ice age and an interglacial state is on average only 5 °C. 
+From the graph above, it can be seen that the Earth has been going in and out of glacial period with milder interglacial periods in-between. This supports the hypothesis that the Earth system is located in one of a few discrete states. The different between an ice age and an interglacial state is on average only 5 °C.
 
 <p align="center">
   <img width="400" height="400" src="/images/planet-states.jpeg">
