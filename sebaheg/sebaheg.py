@@ -132,6 +132,7 @@ stylesheets = [
 ]
 
 app = rx.App(
+    enable_state=False,
     stylesheets=stylesheets,
     theme=rx.theme(
         appearance="light",
