@@ -1,0 +1,113 @@
+/* Import JetBrains Mono for techy monospace look */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+/* Base styles */
+* {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+}
+
+body {
+  background-color: #fafafa;
+  color: #1a1a1a;
+  line-height: 1.7;
+}
+
+/* Override Radix styles for light theme */
+:root {
+  --accent-1: #fafafa;
+  --accent-2: #f5f5f5;
+  --gray-12: #1a1a1a;
+}
+
+/* Markdown prose styling */
+.prose {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  font-weight: 600;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+.prose h1 {
+  font-size: 1.5em;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 0.3em;
+}
+
+.prose h2 {
+  font-size: 1.25em;
+}
+
+.prose h3 {
+  font-size: 1.1em;
+}
+
+.prose p {
+  margin-bottom: 1em;
+}
+
+.prose ul,
+.prose ol {
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+.prose li {
+  margin-bottom: 0.25em;
+}
+
+.prose code {
+  background-color: #f0f0f0;
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.prose pre {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+  padding: 1em;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+
+.prose pre code {
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.prose blockquote {
+  border-left: 3px solid #d0d0d0;
+  padding-left: 1em;
+  margin-left: 0;
+  color: #666;
+  font-style: italic;
+}
+
+.prose a {
+  color: #1a1a1a;
+  text-decoration: underline;
+}
+
+.prose a:hover {
+  opacity: 0.7;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Selection */
+::selection {
+  background-color: #d0d0d0;
+}
