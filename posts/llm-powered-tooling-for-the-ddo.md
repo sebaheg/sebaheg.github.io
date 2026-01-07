@@ -1,5 +1,5 @@
 ---
-title: Future of data-driven organsations 
+title: LLM-powered tooling for the DDO
 date: 2026-01-07
 description: My first blog post
 ---
@@ -16,3 +16,6 @@ Welcome to my blog! This is my first post.
 2) Opinionated, domain-specific data model
 3) Prompt-to-X (pipeline, dashboard, app, test, etc)
 4) Visual Extensive test- and validation-layer
+
+
+Why not build these primitives yourself as well? Well, even in a world where code is for free, every line of code adds to your technical debt. And when the code breaks, you can yell all day at Claude, the responsibility is still with you. If it's not core to your business your better of passing that headache on to someone else. 
