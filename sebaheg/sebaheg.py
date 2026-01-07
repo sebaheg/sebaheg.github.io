@@ -21,6 +21,7 @@ def get_all_posts() -> list[dict]:
                 "date": str(post.get("date", "")),
                 "description": post.get("description", ""),
                 "content": post.content,
+                "publish": post.get("publish", True),
             })
     posts.sort(key=lambda x: x["date"], reverse=True)
     return posts
@@ -28,6 +29,7 @@ def get_all_posts() -> list[dict]:
 
 # Load all posts at build time (static)
 ALL_POSTS = get_all_posts()
+PUBLISHED_POSTS = [p for p in ALL_POSTS if p["publish"]]
 POSTS_BY_SLUG = {p["slug"]: p for p in ALL_POSTS}
 
 
@@ -76,7 +78,7 @@ def post_item(post: dict) -> rx.Component:
 
 
 def index() -> rx.Component:
-    """Home page - list of all blog posts."""
+    """Home page - list of published blog posts."""
     return rx.box(
         navbar(),
         rx.box(
@@ -84,7 +86,7 @@ def index() -> rx.Component:
                 "posts",
                 class_name="font-mono text-sm text-gray-500 mb-4",
             ),
-            *[post_item(post) for post in ALL_POSTS],
+            *[post_item(post) for post in PUBLISHED_POSTS],
             class_name="py-8",
         ),
         class_name="max-w-2xl mx-auto px-4",
@@ -145,8 +147,11 @@ app.add_page(index, route="/", title="Blog")
 
 # Add each post as a static page
 for post in ALL_POSTS:
+    # Unpublished posts get noindex meta tag to prevent search engine indexing
+    meta = [] if post["publish"] else [{"name": "robots", "content": "noindex, nofollow"}]
     app.add_page(
         lambda p=post: create_post_page(p),
         route=f"/post/{post['slug']}",
         title=post["title"],
+        meta=meta,
     )
