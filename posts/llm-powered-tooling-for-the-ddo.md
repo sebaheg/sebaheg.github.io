@@ -1,50 +1,28 @@
 ---
-title: The LLM-powered data stack
+title: The AI-powered data stack
 date: 2026-01-07
 description: My first blog post
 publish: false
 ---
-It seems to me that there are two camps of people right now, those who have seen the light of LLM-powered coding tools and those that haven't. As a product-person, I just got to spent some time during the winter holiday to try out tools like Cursor and Claude Code and that was definitively a precondition for me to see it, but I don't think that's the only thing. It seems like there is a lot of people out there using Cursor on a daily basis and saying "yeah, it's nice for tab-completion and refactoring". In addition to first-hand usage, it's about extrapolating the consequences. 
+It’s probably an understatement to say that software development sits at an inflexion point in beginning of 2026. It’s no longer just about tab completion and code assistants; AI code agents like Claude Code are autonomously producing full PRs that are merged into production-grade codebases. It is undeniably looking like the code of the future will - to a large extent - write itself. It’s a strange type of intelligence that, in one stroke, creates some impressive piece of code or math, just to face plant by confidently miscounting the number of r’s in “strawberry” or miscalculating a simple addition. What will all of this mean for in-house data teams and the data stack they use? That’s what I want to take a stab at here. 
 
-There is not a lack of blog posts and books on the topic of data-driven organisations (DDO). But in a world where the code is writing itself, I think some updates to our old frameworks and mental models are due. I'll implicitly focus on what I know best in this post - data work, especially, data science in vertical industries. 
+The goal of an in-house data team is to drive business value (measurable or not) by enabling automated processes and better decisions (often under uncertainty), ultimately creating data-driven organisations. Data-driven organisations live on some sort of scale between zero and 100%, where later percentage points become increasingly expensive to achieve. At one end, you have legacy businesses and on the other, digital- and AI-native ones. Also, inside the organisation, you might have very different degrees of “data-drivenness”.
 
-from the perspective of product-development
+### Vibe coding vs AI-assisted coding
+It’s probably first a good idea to establish some definitions here. Vibe coding is about prompting and AI to code, without even looking at what is going on behind the scenes. AI-assisted coding is about using AI code generation while still ensuring sound architectural decisions and overall code quality and reliability. They both have their place in different situations, but in general, the higher the complexity and consequences of software failure, the more you want to err on the side of AI-assisted coding. 
 
-### The promise of the data-driven organisation
-The idea of a data-driven organisation is as old as... 
+### “The one step forward, two steps back”-problem
+As most vibe coders out there can testify, building software with AI can be a pain in the ass. You manage to build some sort of prototype app, but then when you want to add some additional functionality, you simultaneously break the functionality of two unrelated features. As you took one step forward, the AI threw you two steps back. The underlying problem here is that all software lives in some context and assumes user intent; if the AI gets this wrong, it will easily tangle up things in your codebase. Throw more AI on the problem, and it will just amplify the mess it has created. 
 
-### The key components of the LLM-powered data stack
+### LEGO bricks to the rescue
+The solution to this problem is constraining your AI with well-grounded and sound guardrails. You create maintainable, reusable building blocks - like LEGO bricks - that the AI can use to stitch things together, rather than building everything from the ground up on incomplete context and assumptions. Your job as a programmer is to ensure the AI serves the right context and intent by continuously factoring out modular pieces of the code as standalone building blocks. In a way, coding with AI is like climbing; each extracted building block is like a bolt in the rock - it locks in your progress and enables you to climb even further. 
+
+### The key components of the AI-powered data stack
 My bet is that the best tooling for data teams will take the following form factor, in order, from the ground up: 
 
-1) Vendor-maintained, code-first intrastructure primitives
-2) Opinionated, domain specific data models and tools
-3) Prompt-to-X (pipeline, dashboard, app, test, etc)
+1) Transparent and controllable cloud infrastructure primitives
+2) Opinionated, domain-specific data models and tools
+3) Prompt-to-X (pipeline, dashboard, app, test, etc.)
 4) Visual, extensive test- and validations
 
 Let's unpack this. 
-
-### Vendor-maintained, code-first intrastructure primitives and data tools
-These are the infrastructure, API and visualisation lego bricks. Data teams should focus on business outcomes and not on reinventing building blocks that could be purchased from vendors specialised on just this. Code-first tools enables a flexibility and precision, no-code tools will never be able to meet. But code-first goes deeper than that, it's tools that expose full transparancy and control to the user. Here is an example of an error message I ran into in a cloud app deployment platform: 
-
-```bash
-Build failed due to eceeded memory. Please contact support for more information. 
-```
-
-I had no clue what machine I was using for the deployment, nor any logs that could help me debug. Not to speak of the control That I would need to change the deployment specs and fix the problem. 
-
-You might say: "if code is for free, why don't I just build my own primitives?". Well, even in a world where code is for free, every line of code adds to your technical debt. And when the code breaks, you can yell at Claude all day long, but the responsibility is still with you. If it's not core to your business your better of passing that headache on to someone else. 
-
-### Opinionated, domain specific data models and tools
-Data teams inside of companies develop data products, like APIs, models, dashboards, to solve specific business problems. The degrees-of-freedom for creating these products is endless. Being opinionated means, knowing the problem and the user so well that you can articulate the *how* of the solution better than anyone else. The user gets surprised with delight of the problem framing and recognition. That's the definition of [product taste](https://www.linkedin.com/pulse/taste-sarah-guo-u9qcf/). 
-
-### Prompt-to-X (pipeline, dashboard, app, test, etc)
-The entry point data stack is most likely 
-
-
-### Visual test, observability and validation 
-Given that we are delagating more and more of writing code to LLMs, we need other ways to build up confidence than direct code interaction. The way to do this is testing and observing code execution in safe environments before deploying. I think this will take the form of intuitive UIs that lets you sift through the result of 1000s LLM- and developer-written tests quickly. 
-
-GPT-wrapper:
-The assumption is that there is a value in knowing more than the customer about a particular thing. You prompt it in a smarter way and provide a better UI. 
-
-The toolkit for data scientists is increasingly just pen and paper or the whiteboard. 
