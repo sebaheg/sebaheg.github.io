@@ -70,12 +70,12 @@ body {
 }
 
 .prose pre {
-  background-color: #1a1a1a;
+  background-color: #1a1a1a00;
   color: #f0f0f0;
-  padding: 1em;
+  padding: 0;
   border-radius: 4px;
   overflow-x: auto;
-  margin: 1em 0;
+  margin: 0;
 }
 
 .prose pre code {

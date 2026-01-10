@@ -32,13 +32,13 @@ Deploying code on cloud infrastructure can be tedious, especially when iteration
 
 Here is an example of an error message I ran into in a cloud app deployment platform the other day: 
 
-```bash
+```
 Build failed due to exceeding memory. Please contact support for more information. 
 ```
 
-Compare this to the deployment logs you get from a tool like Modal:
+Compare this to the deployment logs you get from a tool like [Modal](https://modal.com/):
 
-```bash
+```
 => Building image for Function: my_function
    Collecting pandas==2.1.0 (from -r /requirements.txt (line 3))
    Successfully installed numpy-1.26.0 pandas-2.1.0
