@@ -1,8 +1,8 @@
 ---
 title: The AI-powered data stack
-date: 2026-01-07
+date: 2026-01-10
 description: My first blog post
-publish: false
+publish: true
 ---
 It’s probably an understatement to say that software development sits at an inflexion point in beginning of 2026. It’s no longer just about tab completion and code assistants; AI code agents like Claude Code are autonomously producing full PRs that are merged into production-grade codebases. It is undeniably looking like the code of the future will - to a large extent - write itself. It’s a strange type of intelligence that, in one stroke, creates some impressive piece of code or math, just to face plant by confidently miscounting the number of r’s in “strawberry” or miscalculating a simple addition. What will all of this mean for in-house data teams and the data stack they use? That’s what I want to take a stab at here. 
 
@@ -26,3 +26,29 @@ My bet is that the best tooling for data teams will take the following form fact
 4) Visual, extensive test- and validations
 
 Let's unpack this. 
+
+#### Transparent and controllable cloud infrastructure primitives
+Deploying code on cloud infrastructure can be tedious, especially when iteration loops are long. This is an area where AI code agents work surprisingly well. They read documentation, analyse deployment logs at speeds far beyond what’s humanly possible. For this to work, the cloud infrastructure should provide logs in a code-queryable way and enable diling the infrastructure nobs to fix deployment issues. 
+
+Here is an example of an error message I ran into in a cloud app deployment platform the other day: 
+
+```bash
+Build failed due to exceeding memory. Please contact support for more information. 
+```
+
+And below are the deployment logs you get from a tool like Modal. This is like candy for your AI code agent. 
+
+#### Opinionated, domain-specific data models and tools
+Inhouse data teams develop data products, like APIs, models, and dashboards, to solve specific business problems. The degrees-of-freedom for creating these products are endless. Being opinionated means knowing the problem and the user so well that you can articulate the *how* of the solution better than anyone else. The user gets surprised with the delight of the problem framing and recognition. That's, for me, is the definition of [product taste](https://www.linkedin.com/pulse/taste-sarah-guo-u9qcf/). 
+
+#### Prompt-to-X (pipeline, dashboard, app, test, etc)
+Now with the right building blocks in place, what is left is quickly producing the right glue code and customisations to the before mentioned data products. Technical or non-technical users prompt what they want to achieve and the AI code agent compose data products with well-defined and documented blocks. Being built using sound and trusted foundations, these data products will be significantly more reliable and easier to maintain - both for coders and for the AI code agent itself. 
+
+#### Visual test, observability and validation 
+Given that we are delegating more and more of writing code to AI code agents, we need other ways to build up confidence than direct code interaction. The way to do this is to test and observe code execution in safe environments before deploying, and then constantly validate code that is in production. This will take the form of visual, intuitive UIs that let you sift through the result of thousands of AI- and developer-written tests quickly. Here the developer should have a way to at least validate the most important tests and perform a sanity check before hitting “deploy”. 
+
+### On responsibility
+You might say: "if the code writes itself, why don't I just let the AI code agent build my own building blocks as well?". Well, even in a world where the code writes itself, every single line of code adds to your accumulated technical debt. When a vendor-maintained building block breaks, you can call them up and have them fix it. If the code of your AI code agent breaks, you can yell at it all day, but you are still on the hook for making things work. If it's not core functionality or knowledge to your business your better off passing that headache on to someone else. 
+
+### Pens and whiteboards
+With this new data stack in place, data teams will be increasingly climb the latter of abstraction from the *how* to implement to the *what* implement. Deciding what to do, deciding on and implementing on the right workflows and collaboration models in the team. The work of a data team is increasingly going to happen on the human-level of communication and context sharing, and some of the most important tools for that are pens and whiteboards.  
