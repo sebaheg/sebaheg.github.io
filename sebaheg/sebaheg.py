@@ -3,6 +3,18 @@
 import reflex as rx
 from pathlib import Path
 import frontmatter
+from reflex.components.datadisplay.code import CodeBlock, Theme
+
+
+def dark_codeblock(value: object, **props):
+    """Custom codeblock that always uses dark theme."""
+    return CodeBlock.create(
+        value,
+        margin_y="1em",
+        wrap_long_lines=True,
+        theme=Theme.one_dark,
+        **props,
+    )
 
 
 # Posts directory
@@ -120,6 +132,7 @@ def create_post_page(post: dict) -> rx.Component:
             rx.markdown(
                 post["content"],
                 class_name="prose prose-sm font-mono",
+                component_map={"codeblock": dark_codeblock},
             ),
             class_name="py-8",
         ),
