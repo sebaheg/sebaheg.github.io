@@ -8,7 +8,7 @@ publish: false
 
 Some take the simplistic view that product taste is just equal to design. But really, it's more of a superset. Others compare it with being opinionated, but that feels more like a necessary rather than sufficient condition. You can be highly opinionated and at the same time fail to resonate with a wider audience. In that sense, taste is something more intersubjective than subjective. 
 
-Words similar to "taste" have already been floating around in the product community, like *product intuition* or *product sense*. All these words hints at the idea that taste is something that cannot be taught - it has to be developed through experiences. But experiences alone won't cut it, there has to also be a sensitivity attuned to those experiences. In fact, [some thinkers argue](https://www.goodreads.com/quotes/9593004-a-new-formula-for-acquiring-ethical-knowledge-appeared-knowledge), the way to think about knowledge is: 
+Words similar to "taste" have already been floating around in the product community, like *product intuition* or *product sense*. All these words hints at the idea that taste is something that cannot be taught - it has to be developed through experiences. But experiences alone won't cut it, there has to also be a sensitivity attuned to those experiences. In fact, [some thinkers argue](https://www.goodreads.com/quotes/9593004-a-new-formula-for-acquiring-ethical-knowledge-appeared-knowledge), the way to think about knowledge is: `testing here`
 
 
 > knowledge = experience x sensitivity

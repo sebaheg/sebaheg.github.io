@@ -69,6 +69,12 @@ body {
   font-size: 0.9em;
 }
 
+/* Remove decorative backticks from Radix Code component */
+.prose code::before,
+.prose code::after {
+  content: none !important;
+}
+
 .prose pre {
   background-color: #1a1a1a00;
   color: #f0f0f0;
@@ -90,6 +96,14 @@ body {
   margin-left: 0;
   color: #666;
   font-style: italic;
+}
+
+/* Remove decorative quotes from blockquote */
+.prose blockquote::before,
+.prose blockquote::after,
+.prose blockquote p::before,
+.prose blockquote p::after {
+  content: none !important;
 }
 
 .prose a {
