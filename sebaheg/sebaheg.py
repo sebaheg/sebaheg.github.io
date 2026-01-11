@@ -153,6 +153,15 @@ app = rx.App(
         appearance="light",
         accent_color="gray",
     ),
+    head_components=[
+        rx.script(
+            src="https://cloud.umami.is/script.js",
+            custom_attrs={
+                "defer": True,
+                "data-website-id": "1ff99f4b-877e-474d-baaa-865d8bf278da",
+            },
+        ),
+    ],
 )
 
 # Add index page
