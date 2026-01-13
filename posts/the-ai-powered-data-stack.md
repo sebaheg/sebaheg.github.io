@@ -1,8 +1,8 @@
 ---
 title: The AI-powered data stack
-date: 2026-01-10
-description: My first blog post
-publish: true
+date: 2026-01-14
+description: How will the future data stack look like? 
+publish: false
 ---
 It’s probably an understatement to say that software development sits at an inflection point at beginning of 2026. It’s no longer just about tab completion and code assistants; AI code agents like Claude Code are autonomously producing full PRs that are merged into production-grade codebases. It is undeniably looking like the code of the future will - to a large extent - write itself. It’s a strange type of intelligence that, in one stroke, creates some impressive piece of code or math, just to face plant by confidently miscounting the number of r’s in “strawberry” or miscalculating a simple addition. What will all of this mean for in-house data teams and the data stack they use? That’s what I want to take a stab at here. 
 
