@@ -34,3 +34,8 @@ Product taste doesn’t lie in a single decision or plan. It emerges from the ac
 
 ### Conclusion
 In a world where building software is becoming cheaper and faster, taste may be one of the few enduring differentiators left. Not because it guarantees correctness, but because it keeps you oriented. It helps you recognize what matters, what doesn’t, and why. And perhaps the real aim of product taste is not to make products perfect, but to make them more meaningful.
+
+Key ideas: 
+usefulness -> emotion -> meaningfulness
+Something else I thought about??? 
+Do one more iteration with chatgpt

@@ -42,6 +42,7 @@ def get_all_posts() -> list[dict]:
 # Load all posts at build time (static)
 ALL_POSTS = get_all_posts()
 PUBLISHED_POSTS = [p for p in ALL_POSTS if p["publish"]]
+DRAFT_POSTS = sorted([p for p in ALL_POSTS if not p["publish"]], key=lambda x: x["title"])
 POSTS_BY_SLUG = {p["slug"]: p for p in ALL_POSTS}
 
 
@@ -69,10 +70,11 @@ def navbar() -> rx.Component:
 
 def post_item(post: dict) -> rx.Component:
     """A single post item in the list."""
+    date_text = "draft" if not post["publish"] else post["date"]
     return rx.link(
         rx.hstack(
             rx.text(
-                post["date"],
+                date_text,
                 class_name="text-gray-500 font-mono text-sm w-28 shrink-0",
             ),
             rx.text(
@@ -105,8 +107,26 @@ def index() -> rx.Component:
     )
 
 
+def drafts() -> rx.Component:
+    """Draft page - list of unpublished blog posts."""
+    return rx.box(
+        navbar(),
+        rx.box(
+            rx.text(
+                "drafts",
+                class_name="font-mono text-sm text-gray-500 mb-4",
+            ),
+            *[post_item(post) for post in DRAFT_POSTS],
+            class_name="py-8",
+        ),
+        class_name="max-w-2xl mx-auto px-4",
+    )
+
+
 def create_post_page(post: dict) -> rx.Component:
     """Create a static post page component."""
+    date_text = "draft" if not post["publish"] else post["date"]
+    back_href = "/draft" if not post["publish"] else "/"
     return rx.box(
         navbar(),
         rx.box(
@@ -115,12 +135,12 @@ def create_post_page(post: dict) -> rx.Component:
                     "<- back",
                     class_name="font-mono text-sm text-gray-500 hover:text-gray-700",
                 ),
-                href="/",
+                href=back_href,
                 class_name="no-underline",
             ),
             rx.box(
                 rx.text(
-                    post["date"],
+                    date_text,
                     class_name="font-mono text-sm text-gray-500",
                 ),
                 rx.heading(
@@ -166,6 +186,14 @@ app = rx.App(
 
 # Add index page
 app.add_page(index, route="/", title="Blog")
+
+# Add draft page (not indexed)
+app.add_page(
+    drafts,
+    route="/draft",
+    title="Drafts",
+    meta=[{"name": "robots", "content": "noindex, nofollow"}],
+)
 
 # Add each post as a static page
 for post in ALL_POSTS:
