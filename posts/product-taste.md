@@ -2,7 +2,7 @@
 title: Product taste
 date: 2026-01-13
 description: What is product taste and why does it matter?
-publish: true
+publish: false
 ---
 *Product taste* seems to be all the rage these days. As software becomes easier to build, differentiation is shifting from technology to softer aspects of product development, like taste. But what does great product taste even entail? 
 

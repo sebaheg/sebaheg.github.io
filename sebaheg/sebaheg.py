@@ -71,6 +71,7 @@ def navbar() -> rx.Component:
 def post_item(post: dict) -> rx.Component:
     """A single post item in the list."""
     date_text = "draft" if not post["publish"] else post["date"]
+    post_url = f"/drafts/{post['slug']}" if not post["publish"] else f"/posts/{post['slug']}"
     return rx.link(
         rx.hstack(
             rx.text(
@@ -86,7 +87,7 @@ def post_item(post: dict) -> rx.Component:
             gap="4",
             width="100%",
         ),
-        href=f"/post/{post['slug']}",
+        href=post_url,
         class_name="no-underline text-inherit hover:opacity-70 py-2 block",
     )
 
@@ -126,7 +127,7 @@ def drafts() -> rx.Component:
 def create_post_page(post: dict) -> rx.Component:
     """Create a static post page component."""
     date_text = "draft" if not post["publish"] else post["date"]
-    back_href = "/draft" if not post["publish"] else "/"
+    back_href = "/drafts" if not post["publish"] else "/"
     return rx.box(
         navbar(),
         rx.box(
@@ -190,7 +191,7 @@ app.add_page(index, route="/", title="Blog")
 # Add draft page (not indexed)
 app.add_page(
     drafts,
-    route="/draft",
+    route="/drafts",
     title="Drafts",
     meta=[{"name": "robots", "content": "noindex, nofollow"}],
 )
@@ -199,9 +200,10 @@ app.add_page(
 for post in ALL_POSTS:
     # Unpublished posts get noindex meta tag to prevent search engine indexing
     meta = [] if post["publish"] else [{"name": "robots", "content": "noindex, nofollow"}]
+    post_route = f"/posts/{post['slug']}" if post["publish"] else f"/drafts/{post['slug']}"
     app.add_page(
         lambda p=post: create_post_page(p),
-        route=f"/post/{post['slug']}",
+        route=post_route,
         title=post["title"],
         meta=meta,
     )
